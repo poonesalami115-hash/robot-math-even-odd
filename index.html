@@ -5,9 +5,9 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ربات ریاضی | اعداد زوج و فرد</title>
+<title>ربات ریاضی | زوج و فرد | کلاس ششم</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,89 +15,295 @@
 
 <body>
 
-<div id="game">
+<!--==============================
+صفحه معرفی ربات
+===============================-->
 
-    <!-- پس زمینه -->
-    <div id="background"></div>
+<div id="introPage">
 
-    <!-- نوار بالا -->
-    <header id="topBar">
+    <img src="background.png" id="introBackground">
 
-        <div id="batteryBox">
+    <div id="introOverlay"></div>
 
-            <img src="battery.png" id="battery">
+    <div id="introContent">
 
-            <span id="batteryText">0%</span>
+        <img
+            src="robot-sleep.png"
+            id="introRobot">
+
+        <div id="introSpeech">
+
+            ...
 
         </div>
 
-        <div id="starBox">
+    </div>
+
+</div>
+
+
+
+<!--==============================
+صفحه ورود
+===============================-->
+
+<div id="loginPage" class="hidden">
+
+    <img src="background.png" id="loginBackground">
+
+    <div id="loginOverlay"></div>
+
+    <div id="loginBox">
+
+        <img
+            src="robot.png"
+            id="loginRobot">
+
+        <h1>
+
+            بازی ربات ریاضی
+
+        </h1>
+
+        <h2>
+
+            اعداد زوج و فرد
+
+        </h2>
+
+        <input
+
+            type="text"
+
+            id="studentName"
+
+            placeholder="نام و نام خانوادگی">
+
+        <input
+
+            type="tel"
+
+            id="studentCode"
+
+            maxlength="10"
+
+            placeholder="کد ملی">
+
+        <button id="startBtn">
+
+            شروع بازی
+
+        </button>
+
+    </div>
+
+</div>
+<!--==============================
+صفحه بازی
+===============================-->
+
+<div id="gamePage" class="hidden">
+
+    <img src="background.png" id="gameBackground">
+
+    <div id="gameOverlay"></div>
+
+    <!-- نوار بالا -->
+
+    <header id="topBar">
+
+        <div class="topItem">
+
+            <img src="battery.png">
+
+            <span id="batteryValue">
+
+                0%
+
+            </span>
+
+        </div>
+
+        <div class="topItem">
 
             <img src="star.png">
 
-            <span id="stars">0</span>
+            <span id="starValue">
+
+                0
+
+            </span>
 
         </div>
 
-        <div id="coinBox">
+        <div class="topItem">
 
             <img src="coin.png">
 
-            <span id="coins">0</span>
+            <span id="coinValue">
+
+                0
+
+            </span>
 
         </div>
 
     </header>
 
+
+
     <!-- ربات -->
 
-    <section id="robotSection">
+    <section id="robotArea">
 
-        <img src="robot.png" id="robot">
+        <img
 
-    </section>
+            src="robot.png"
 
-    <!-- متن صحبت ربات -->
-
-    <section id="robotSpeech">
-
-        سلام دوست من 🌸
-
-        آماده‌ای با هم ربات را شارژ کنیم؟
+            id="robot">
 
     </section>
 
-    <!-- سؤال -->
+
+
+    <!-- کادر صحبت -->
+
+    <section id="speechBox">
+
+        سلام!
+
+    </section>
+
+
+
+    <!-- سوال -->
 
     <section id="questionBox">
 
-        سؤال اینجا نمایش داده می‌شود
+        سؤال اینجا نمایش داده می‌شود.
 
     </section>
+
+
 
     <!-- گزینه‌ها -->
 
-    <section id="answers">
+    <section id="answersBox">
 
     </section>
+
+
 
     <!-- نوار پیشرفت -->
 
-    <section id="progress">
+    <section id="progressBar">
 
-        <div id="progressFill"></div>
+        <div id="progressFill">
 
-    </section>
-
-    <!-- مدال -->
-
-    <section id="medalArea">
-
-        <img src="medal-bronze.png" id="medal">
+        </div>
 
     </section>
 
 </div>
+<!--==============================
+صفحه پایان بازی
+===============================-->
+
+<div id="finishPage" class="hidden">
+
+    <img src="background.png" id="finishBackground">
+
+    <div id="finishOverlay"></div>
+
+    <div id="finishBox">
+
+        <img
+            src="robot-winner.png"
+            id="finishRobot">
+
+        <h1>
+
+            مأموریت با موفقیت انجام شد!
+
+        </h1>
+
+        <div id="resultInfo">
+
+            <p>
+
+                👤 نام و نام خانوادگی:
+
+                <span id="resultName"></span>
+
+            </p>
+
+            <p>
+
+                🆔 کد ملی:
+
+                <span id="resultCode"></span>
+
+            </p>
+
+            <p>
+
+                ⭐ امتیاز:
+
+                <span id="resultScore"></span>
+
+            </p>
+
+            <p>
+
+                🔋 شارژ ربات:
+
+                <span id="resultBattery"></span>
+
+            </p>
+
+            <p>
+
+                🪙 سکه‌ها:
+
+                <span id="resultCoins"></span>
+
+            </p>
+
+            <p>
+
+                ⭐ ستاره‌ها:
+
+                <span id="resultStars"></span>
+
+            </p>
+
+        </div>
+
+        <div id="medalBox">
+
+            <img
+                src="medal-bronze.png"
+                id="resultMedal">
+
+        </div>
+
+        <p id="teacherName">
+
+            آموزگار: پونه سلامی
+
+        </p>
+
+        <button id="screenShotBtn">
+
+            📸 گرفتن اسکرین‌شات
+
+        </button>
+
+    </div>
+
+</div>
+
+
 
 <script src="questions.js"></script>
 
