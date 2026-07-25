@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>ربات ریاضی | اعداد زوج و فرد</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="game">
+
+    <!-- پس زمینه -->
+    <div id="background"></div>
+
+    <!-- نوار بالا -->
+    <header id="topBar">
+
+        <div id="batteryBox">
+
+            <img src="battery.png" id="battery">
+
+            <span id="batteryText">0%</span>
+
+        </div>
+
+        <div id="starBox">
+
+            <img src="star.png">
+
+            <span id="stars">0</span>
+
+        </div>
+
+        <div id="coinBox">
+
+            <img src="coin.png">
+
+            <span id="coins">0</span>
+
+        </div>
+
+    </header>
+
+    <!-- ربات -->
+
+    <section id="robotSection">
+
+        <img src="robot.png" id="robot">
+
+    </section>
+
+    <!-- متن صحبت ربات -->
+
+    <section id="robotSpeech">
+
+        سلام دوست من 🌸
+
+        آماده‌ای با هم ربات را شارژ کنیم؟
+
+    </section>
+
+    <!-- سؤال -->
+
+    <section id="questionBox">
+
+        سؤال اینجا نمایش داده می‌شود
+
+    </section>
+
+    <!-- گزینه‌ها -->
+
+    <section id="answers">
+
+    </section>
+
+    <!-- نوار پیشرفت -->
+
+    <section id="progress">
+
+        <div id="progressFill"></div>
+
+    </section>
+
+    <!-- مدال -->
+
+    <section id="medalArea">
+
+        <img src="medal-bronze.png" id="medal">
+
+    </section>
+
+</div>
+
+<script src="questions.js"></script>
+
+<script src="game.js"></script>
+
+</body>
+
+</html>
