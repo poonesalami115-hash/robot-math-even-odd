@@ -7,7 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ربات ریاضی | زوج و فرد | کلاس ششم</title>
+<title>ربات ریاضی | اعداد زوج و فرد | کلاس ششم</title>
+
+<meta name="theme-color" content="#2B7CFF">
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,49 +17,67 @@
 
 <body>
 
-<!--==============================
+<!-- ===========================================
 صفحه معرفی ربات
-===============================-->
+=========================================== -->
 
-<div id="introPage">
+<section id="introPage">
 
-    <img src="background.png" id="introBackground">
+    <img
+        src="background.png"
+        id="introBackground"
+        alt="Background">
 
     <div id="introOverlay"></div>
 
-    <div id="introContent">
+    <div id="introContainer">
 
         <img
             src="robot-sleep.png"
-            id="introRobot">
+            id="introRobot"
+            alt="Robot">
 
         <div id="introSpeech">
 
-            ...
+            سلام دوست من 🌸
+
+        </div>
+
+        <div id="introLoading">
+
+            <div id="loadingBar">
+
+                <div id="loadingFill"></div>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
+</section>
 
 
 
-<!--==============================
+<!-- ===========================================
 صفحه ورود
-===============================-->
+=========================================== -->
 
-<div id="loginPage" class="hidden">
+<section id="loginPage" class="hidden">
 
-    <img src="background.png" id="loginBackground">
+    <img
+        src="background.png"
+        id="loginBackground"
+        alt="Background">
 
     <div id="loginOverlay"></div>
 
-    <div id="loginBox">
+    <div id="loginContainer">
 
         <img
             src="robot.png"
-            id="loginRobot">
+            id="loginRobot"
+            alt="Robot">
 
         <h1>
 
@@ -77,6 +97,8 @@
 
             id="studentName"
 
+            autocomplete="off"
+
             placeholder="نام و نام خانوادگی">
 
         <input
@@ -85,9 +107,17 @@
 
             id="studentCode"
 
+            autocomplete="off"
+
             maxlength="10"
 
+            inputmode="numeric"
+
             placeholder="کد ملی">
+
+        <div id="loginError">
+
+        </div>
 
         <button id="startBtn">
 
@@ -97,24 +127,30 @@
 
     </div>
 
-</div>
-<!--==============================
-صفحه بازی
-===============================-->
+</section>
+<!-- ===========================================
+صفحه اصلی بازی
+=========================================== -->
 
-<div id="gamePage" class="hidden">
+<section id="gamePage" class="hidden">
 
-    <img src="background.png" id="gameBackground">
+    <img
+        src="background.png"
+        id="gameBackground"
+        alt="Background">
 
     <div id="gameOverlay"></div>
 
-    <!-- نوار بالا -->
+    <!-- نوار بالای بازی -->
 
     <header id="topBar">
 
-        <div class="topItem">
+        <div class="statusItem">
 
-            <img src="battery.png">
+            <img
+                src="battery.png"
+                class="statusIcon"
+                alt="Battery">
 
             <span id="batteryValue">
 
@@ -124,9 +160,12 @@
 
         </div>
 
-        <div class="topItem">
+        <div class="statusItem">
 
-            <img src="star.png">
+            <img
+                src="star.png"
+                class="statusIcon"
+                alt="Star">
 
             <span id="starValue">
 
@@ -136,9 +175,12 @@
 
         </div>
 
-        <div class="topItem">
+        <div class="statusItem">
 
-            <img src="coin.png">
+            <img
+                src="coin.png"
+                class="statusIcon"
+                alt="Coin">
 
             <span id="coinValue">
 
@@ -157,20 +199,33 @@
     <section id="robotArea">
 
         <img
-
             src="robot.png"
-
-            id="robot">
+            id="robot"
+            alt="Robot">
 
     </section>
 
 
 
-    <!-- کادر صحبت -->
+    <!-- متن ربات -->
 
-    <section id="speechBox">
+    <section id="speechArea">
 
-        سلام!
+        <div id="speechBox">
+
+            آماده‌ای؟
+
+        </div>
+
+    </section>
+
+
+
+    <!-- نوار شارژ باتری -->
+
+    <section id="batteryProgress">
+
+        <div id="batteryFill"></div>
 
     </section>
 
@@ -178,137 +233,89 @@
 
     <!-- سوال -->
 
-    <section id="questionBox">
+    <section id="questionArea">
 
-        سؤال اینجا نمایش داده می‌شود.
-
-    </section>
-
-
-
-    <!-- گزینه‌ها -->
-
-    <section id="answersBox">
-
-    </section>
-
-
-
-    <!-- نوار پیشرفت -->
-
-    <section id="progressBar">
-
-        <div id="progressFill">
+        <div id="questionBox">
 
         </div>
 
-    </section>
 
-</div>
-<!--==============================
+ <!-- ===========================================
 صفحه پایان بازی
-===============================-->
+=========================================== -->
 
-<div id="finishPage" class="hidden">
+<section id="finishPage" class="hidden">
 
-    <img src="background.png" id="finishBackground">
+    <img
+        src="background.png"
+        id="finishBackground"
+        alt="Background">
 
     <div id="finishOverlay"></div>
 
-    <div id="finishBox">
+    <div id="finishContainer">
 
         <img
             src="robot-winner.png"
-            id="finishRobot">
+            id="finishRobot"
+            alt="Winner Robot">
 
         <h1>
 
-            مأموریت با موفقیت انجام شد!
+            مأموریت با موفقیت انجام شد 🎉
 
         </h1>
 
-        <div id="resultInfo">
+        <div id="resultCard">
 
             <p>
-
                 👤 نام و نام خانوادگی:
-
                 <span id="resultName"></span>
-
             </p>
 
             <p>
-
                 🆔 کد ملی:
-
                 <span id="resultCode"></span>
-
             </p>
 
             <p>
+                📚 بازی:
+                ربات ریاضی | اعداد زوج و فرد
+            </p>
 
-                ⭐ امتیاز:
+            <p>
+                👩‍🏫 آموزگار:
+                پونه سلامی
+            </p>
 
+            <p>
+                📅 تاریخ:
+                <span id="resultDate"></span>
+            </p>
+
+            <p>
+                🕒 ساعت:
+                <span id="resultTime"></span>
+            </p>
+
+            <p>
+                ✅ پاسخ صحیح:
+                <span id="correctCount"></span>
+            </p>
+
+            <p>
+                ❌ پاسخ نادرست:
+                <span id="wrongCount"></span>
+            </p>
+
+            <p>
+                🎯 امتیاز:
                 <span id="resultScore"></span>
-
             </p>
 
             <p>
-
-                🔋 شارژ ربات:
-
-                <span id="resultBattery"></span>
-
+                📈 درصد موفقیت:
+                <span id="resultPercent"></span>
             </p>
 
-            <p>
-
-                🪙 سکه‌ها:
-
-                <span id="resultCoins"></span>
-
-            </p>
-
-            <p>
-
-                ⭐ ستاره‌ها:
-
-                <span id="resultStars"></span>
-
-            </p>
-
-        </div>
-
-        <div id="medalBox">
-
-            <img
-                src="medal-bronze.png"
-                id="resultMedal">
-
-        </div>
-
-        <p id="teacherName">
-
-            آموزگار: پونه سلامی
-
-        </p>
-
-        <button id="screenShotBtn">
-
-            📸 گرفتن اسکرین‌شات
-
-        </button>
-
-    </div>
-
-</div>
-
-
-
-<script src="questions.js"></script>
-
-<script src="game.js"></script>
-
-</body>
-
-</html>
+            <       
