@@ -1,28 +1,28 @@
 /* ==========================================
 ربات ریاضی | کلاس ششم
 game.js
-==========================================*/
+========================================== */
 
-// ---------- صفحات ----------
+/* ---------- صفحات ---------- */
 
 const introPage = document.getElementById("introPage");
 const loginPage = document.getElementById("loginPage");
 const gamePage = document.getElementById("gamePage");
 const finishPage = document.getElementById("finishPage");
 
-// ---------- معرفی ----------
+/* ---------- صفحه معرفی ---------- */
 
 const introSpeech = document.getElementById("introSpeech");
 const loadingFill = document.getElementById("loadingFill");
 
-// ---------- صفحه ورود ----------
+/* ---------- صفحه ورود ---------- */
 
 const studentName = document.getElementById("studentName");
 const studentCode = document.getElementById("studentCode");
 const loginError = document.getElementById("loginError");
 const startBtn = document.getElementById("startBtn");
 
-// ---------- متن‌های معرفی ----------
+/* ---------- متن معرفی ---------- */
 
 const introMessages = [
 
@@ -36,11 +36,13 @@ const introMessages = [
 
 ];
 
-// ---------- شروع ----------
+/* ---------- شروع برنامه ---------- */
 
 window.addEventListener("load", startIntro);
 
-// ---------- صفحه معرفی ----------
+/* ==========================================
+معرفی ربات
+========================================== */
 
 function startIntro(){
 
@@ -48,7 +50,7 @@ function startIntro(){
 
     let percent = 0;
 
-    introSpeech.textContent = introMessages[0];
+    introSpeech.innerHTML = introMessages[0];
 
     const messageTimer = setInterval(function(){
 
@@ -56,7 +58,7 @@ function startIntro(){
 
         if(messageIndex < introMessages.length){
 
-            introSpeech.textContent = introMessages[messageIndex];
+            introSpeech.innerHTML = introMessages[messageIndex];
 
         }
 
@@ -82,7 +84,9 @@ function startIntro(){
 
 }
 
-// ---------- نمایش صفحه ورود ----------
+/* ==========================================
+نمایش صفحه ورود
+========================================== */
 
 function showLoginPage(){
 
@@ -91,11 +95,12 @@ function showLoginPage(){
     loginPage.classList.remove("hidden");
 
 }
-/* =========================================
-شروع بازی
-========================================= */
 
-startBtn.addEventListener("click", checkLogin);
+/* ==========================================
+ورود دانش آموز
+========================================== */
+
+startBtn.addEventListener("click",checkLogin);
 
 function checkLogin(){
 
@@ -124,5 +129,7 @@ function checkLogin(){
     loginPage.classList.add("hidden");
 
     gamePage.classList.remove("hidden");
+
+    startGame();
 
 }
