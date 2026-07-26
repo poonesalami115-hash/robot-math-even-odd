@@ -84,7 +84,7 @@ body{
 #introOverlay,
 #loginOverlay,
 #gameOverlay,
-#finishOverlay{
+#finishOverlay{و
 
     position:absolute;
 
@@ -243,7 +243,7 @@ body{
 
     margin-bottom:20px;
 
-    transform: translateY(-35px);
+    transform: translateY(-45px);
 
 }
 
