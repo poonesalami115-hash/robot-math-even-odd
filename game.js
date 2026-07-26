@@ -189,3 +189,55 @@ function showQuestion(){
     answer4.textContent = q.options[3] || "";
 
 }
+/* ==========================================
+بخش ۳
+بررسی پاسخ
+========================================== */
+
+answer1.addEventListener("click", function(){
+    checkAnswer(0);
+});
+
+answer2.addEventListener("click", function(){
+    checkAnswer(1);
+});
+
+answer3.addEventListener("click", function(){
+    checkAnswer(2);
+});
+
+answer4.addEventListener("click", function(){
+    checkAnswer(3);
+});
+
+function checkAnswer(selected){
+
+    const q = questions[currentQuestion];
+
+    if(selected === q.answer){
+
+        speechBox.textContent = "آفرین 🌸";
+
+    }else{
+
+        speechBox.textContent = "اشتباه بود 😊";
+
+    }
+
+    setTimeout(function(){
+
+        currentQuestion++;
+
+        if(currentQuestion < questions.length){
+
+            showQuestion();
+
+        }else{
+
+            alert("آزمون تمام شد.");
+
+        }
+
+    },800);
+
+}
