@@ -1,70 +1,57 @@
 /* ==========================================
-ربات ریاضی | کلاس ششم
-نسخه جدید
-========================================== */
+ربات ریاضی کلاس ششم
+game.js
+==========================================*/
 
-/* ---------- صفحات ---------- */
-
+// ---------- صفحات ----------
 const introPage = document.getElementById("introPage");
 const loginPage = document.getElementById("loginPage");
 const gamePage = document.getElementById("gamePage");
 const finishPage = document.getElementById("finishPage");
 
-/* ---------- معرفی ---------- */
-
+// ---------- معرفی ----------
 const introSpeech = document.getElementById("introSpeech");
 const loadingFill = document.getElementById("loadingFill");
 
-/* ---------- ورود ---------- */
-
+// ---------- ورود ----------
 const studentName = document.getElementById("studentName");
 const studentCode = document.getElementById("studentCode");
 const loginError = document.getElementById("loginError");
 const startBtn = document.getElementById("startBtn");
 
-/* ---------- متن معرفی ---------- */
-
+// ---------- متن معرفی ----------
 const introMessages = [
-
     "سلام دوست من 🌸",
-
     "من ربات ریاضی هستم 🤖",
-
     "امروز با هم بازی می‌کنیم.",
-
     "آماده شو..."
-
 ];
 
-/* ---------- شروع ---------- */
-
-window.addEventListener("load", startIntro);
-
-/* ==========================================
-صفحه معرفی
-========================================== */
+// ---------- شروع ----------
+window.onload = function () {
+    startIntro();
+};
 
 function startIntro(){
 
-    let index = 0;
-
     let percent = 0;
+    let msg = 0;
 
     introSpeech.innerHTML = introMessages[0];
 
-    const messageTimer = setInterval(function(){
+    const speechTimer = setInterval(function(){
 
-        index++;
+        msg++;
 
-        if(index < introMessages.length){
+        if(msg < introMessages.length){
 
-            introSpeech.innerHTML = introMessages[index];
+            introSpeech.innerHTML = introMessages[msg];
 
         }
 
     },1500);
 
-    const loadingTimer = setInterval(function(){
+    const loadTimer = setInterval(function(){
 
         percent++;
 
@@ -72,12 +59,10 @@ function startIntro(){
 
         if(percent >= 100){
 
-            clearInterval(messageTimer);
-
-            clearInterval(loadingTimer);
+            clearInterval(loadTimer);
+            clearInterval(speechTimer);
 
             introPage.classList.add("hidden");
-
             loginPage.classList.remove("hidden");
 
         }
@@ -85,118 +70,29 @@ function startIntro(){
     },50);
 
 }
-/* ==========================================
-متغیرهای بازی
-========================================== */
 
-let currentQuestion = 0;
+// ---------- ورود ----------
+startBtn.onclick = function(){
 
-let score = 0;
+    loginError.innerHTML = "";
 
-let stars = 0;
+    if(studentName.value.trim()==""){
 
-let coins = 0;
+        loginError.innerHTML="نام را وارد کنید";
 
-let battery = 0;
-
-let timeLeft = 40 * 60; // ۴۰ دقیقه
-
-/* ---------- عناصر صفحه ---------- */
-
-const questionBox = document.getElementById("questionBox");
-
-const currentQuestionSpan = document.getElementById("currentQuestion");
-
-const totalQuestionSpan = document.getElementById("totalQuestion");
-
-const answer1 = document.getElementById("answer1");
-const answer2 = document.getElementById("answer2");
-const answer3 = document.getElementById("answer3");
-const answer4 = document.getElementById("answer4");
-
-const speechBox = document.getElementById("speechBox");
-
-/* ==========================================
-شروع بازی
-========================================== */
-
-function startGame(){
-
-    currentQuestion = 0;
-
-    totalQuestionSpan.innerHTML = questions.length;
-
-    showQuestion();
-
-}
-
-/* ==========================================
-نمایش سؤال
-========================================== */
-
-function showQuestion(){
-
-    const q = questions[currentQuestion];
-
-    currentQuestionSpan.innerHTML = currentQuestion + 1;
-
-    questionBox.innerHTML = q.question;
-
-    answer1.innerHTML = q.options[0] || "";
-
-    answer2.innerHTML = q.options[1] || "";
-
-    answer3.innerHTML = q.options[2] || "";
-
-    answer4.innerHTML = q.options[3] || "";
-
-    speechBox.innerHTML = "پاسخ درست را انتخاب کن 🌸";
-
-}
-/* ==========================================
-بررسی پاسخ
-========================================== */
-
-answer1.onclick = ()=>checkAnswer(0);
-answer2.onclick = ()=>checkAnswer(1);
-answer3.onclick = ()=>checkAnswer(2);
-answer4.onclick = ()=>checkAnswer(3);
-
-function checkAnswer(index){
-
-    const q = questions[currentQuestion];
-
-    if(index === q.answer){
-
-        speechBox.innerHTML = "آفرین 🌸";
-
-        score++;
-
-        stars++;
-
-    }else{
-
-        speechBox.innerHTML = "اشتباه بود 😊";
+        return;
 
     }
 
-    setTimeout(function(){
+    if(studentCode.value.trim().length!=10){
 
-        currentQuestion++;
+        loginError.innerHTML="کد ملی باید ۱۰ رقم باشد";
 
-        if(currentQuestion < questions.length){
+        return;
 
-            showQuestion();
+    }
 
-        }else{
+    loginPage.classList.add("hidden");
+    gamePage.classList.remove("hidden");
 
-            alert("آزمون تمام شد.");
-
-        }
-
-    },1000);
-
-}
-answer1.onclick = function(){
-    alert("دکمه اول کار می‌کند");
-}
+};
