@@ -1,25 +1,29 @@
 /* ==========================================
 ربات ریاضی کلاس ششم
 game.js
-==========================================*/
+========================================== */
 
-// ---------- صفحات ----------
+/* ---------- صفحات ---------- */
+
 const introPage = document.getElementById("introPage");
 const loginPage = document.getElementById("loginPage");
 const gamePage = document.getElementById("gamePage");
 const finishPage = document.getElementById("finishPage");
 
-// ---------- معرفی ----------
+/* ---------- معرفی ---------- */
+
 const introSpeech = document.getElementById("introSpeech");
 const loadingFill = document.getElementById("loadingFill");
 
-// ---------- ورود ----------
+/* ---------- صفحه ورود ---------- */
+
 const studentName = document.getElementById("studentName");
 const studentCode = document.getElementById("studentCode");
 const loginError = document.getElementById("loginError");
 const startBtn = document.getElementById("startBtn");
 
-// ---------- متن معرفی ----------
+/* ---------- متن معرفی ---------- */
+
 const introMessages = [
     "سلام دوست من 🌸",
     "من ربات ریاضی هستم 🤖",
@@ -27,31 +31,41 @@ const introMessages = [
     "آماده شو..."
 ];
 
-// ---------- شروع ----------
+/* ==========================================
+شروع برنامه
+========================================== */
+
 window.onload = function () {
+
     startIntro();
+
 };
+
+/* ==========================================
+صفحه معرفی
+========================================== */
 
 function startIntro(){
 
     let percent = 0;
-    let msg = 0;
+
+    let messageIndex = 0;
 
     introSpeech.innerHTML = introMessages[0];
 
     const speechTimer = setInterval(function(){
 
-        msg++;
+        messageIndex++;
 
-        if(msg < introMessages.length){
+        if(messageIndex < introMessages.length){
 
-            introSpeech.innerHTML = introMessages[msg];
+            introSpeech.innerHTML = introMessages[messageIndex];
 
         }
 
     },1500);
 
-    const loadTimer = setInterval(function(){
+    const loadingTimer = setInterval(function(){
 
         percent++;
 
@@ -59,10 +73,11 @@ function startIntro(){
 
         if(percent >= 100){
 
-            clearInterval(loadTimer);
             clearInterval(speechTimer);
+            clearInterval(loadingTimer);
 
             introPage.classList.add("hidden");
+
             loginPage.classList.remove("hidden");
 
         }
@@ -71,28 +86,38 @@ function startIntro(){
 
 }
 
-// ---------- ورود ----------
-startBtn.onclick = function(){
+/* ==========================================
+ورود دانش آموز
+========================================== */
+
+startBtn.addEventListener("click",checkLogin);
+
+function checkLogin(){
 
     loginError.innerHTML = "";
 
-    if(studentName.value.trim()==""){
+    const name = studentName.value.trim();
 
-        loginError.innerHTML="نام را وارد کنید";
+    const code = studentCode.value.trim();
+
+    if(name === ""){
+
+        loginError.innerHTML = "نام و نام خانوادگی را وارد کنید.";
 
         return;
 
     }
 
-    if(studentCode.value.trim().length!=10){
+    if(code.length !== 10){
 
-        loginError.innerHTML="کد ملی باید ۱۰ رقم باشد";
+        loginError.innerHTML = "کد ملی باید ۱۰ رقم باشد.";
 
         return;
 
     }
 
     loginPage.classList.add("hidden");
+
     gamePage.classList.remove("hidden");
 
-};
+}
