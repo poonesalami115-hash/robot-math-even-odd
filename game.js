@@ -85,3 +85,71 @@ function startIntro(){
     },50);
 
 }
+/* ==========================================
+متغیرهای بازی
+========================================== */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let stars = 0;
+
+let coins = 0;
+
+let battery = 0;
+
+let timeLeft = 40 * 60; // ۴۰ دقیقه
+
+/* ---------- عناصر صفحه ---------- */
+
+const questionBox = document.getElementById("questionBox");
+
+const currentQuestionSpan = document.getElementById("currentQuestion");
+
+const totalQuestionSpan = document.getElementById("totalQuestion");
+
+const answer1 = document.getElementById("answer1");
+const answer2 = document.getElementById("answer2");
+const answer3 = document.getElementById("answer3");
+const answer4 = document.getElementById("answer4");
+
+const speechBox = document.getElementById("speechBox");
+
+/* ==========================================
+شروع بازی
+========================================== */
+
+function startGame(){
+
+    currentQuestion = 0;
+
+    totalQuestionSpan.innerHTML = questions.length;
+
+    showQuestion();
+
+}
+
+/* ==========================================
+نمایش سؤال
+========================================== */
+
+function showQuestion(){
+
+    const q = questions[currentQuestion];
+
+    currentQuestionSpan.innerHTML = currentQuestion + 1;
+
+    questionBox.innerHTML = q.question;
+
+    answer1.innerHTML = q.options[0] || "";
+
+    answer2.innerHTML = q.options[1] || "";
+
+    answer3.innerHTML = q.options[2] || "";
+
+    answer4.innerHTML = q.options[3] || "";
+
+    speechBox.innerHTML = "پاسخ درست را انتخاب کن 🌸";
+
+}
