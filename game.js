@@ -55,6 +55,22 @@ const batterySound = new Audio("battery.mp3");
 const coinSound = new Audio("coin.mp3");
 const starSound = new Audio("star.mp3");
 const fireworksSound = new Audio("fireworks.mp3");
+/* ==========================================
+تنظیم اولیه صداها
+========================================== */
+
+robotBackground.loop = true;
+robotBackground.volume = 0.25;
+
+robotCorrect.volume = 1;
+robotWrong.volume = 1;
+robotFinish.volume = 1;
+
+buttonSound.volume = 0.8;
+batterySound.volume = 1;
+coinSound.volume = 1;
+starSound.volume = 1;
+fireworksSound.volume = 1;
 
 /* ---------- متن معرفی ---------- */
 
@@ -192,6 +208,9 @@ function startGame(){
     batteryFill.style.width = battery + "%";
 
     showQuestion();
+
+robotBackground.currentTime = 0;
+robotBackground.play().catch(()=>{});
 
 }
 
