@@ -197,3 +197,6 @@ function checkAnswer(index){
     },1000);
 
 }
+answer1.onclick = function(){
+    alert("دکمه اول کار می‌کند");
+}
