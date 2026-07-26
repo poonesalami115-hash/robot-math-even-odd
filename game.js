@@ -133,3 +133,95 @@ function checkLogin(){
     startGame();
 
 }
+/* ==========================================
+متغیرهای بازی
+========================================== */
+
+let currentQuestion = 0;
+let score = 0;
+let stars = 0;
+let battery = 100;
+
+/* ---------- عناصر بازی ---------- */
+
+const questionNumber = document.getElementById("questionNumber");
+const questionBox = document.getElementById("questionBox");
+
+const answer1 = document.getElementById("answer1");
+const answer2 = document.getElementById("answer2");
+const answer3 = document.getElementById("answer3");
+const answer4 = document.getElementById("answer4");
+
+/* ---------- نوار بالا ---------- */
+
+const coinValue = document.getElementById("coinValue");
+const starValue = document.getElementById("starValue");
+const batteryValue = document.getElementById("batteryValue");
+
+/* ---------- ربات ---------- */
+
+const speechBox = document.getElementById("speechBox");
+
+/* ==========================================
+شروع بازی
+========================================== */
+
+function startGame(){
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    stars = 0;
+
+    battery = 100;
+
+    updateStatus();
+
+    showQuestion();
+
+}
+
+/* ==========================================
+نمایش سؤال
+========================================== */
+
+function showQuestion(){
+
+    if(currentQuestion >= questions.length){
+
+        finishGame();
+
+        return;
+
+    }
+
+    const q = questions[currentQuestion];
+
+    questionNumber.innerHTML =
+        "سؤال " + (currentQuestion + 1) + " از " + questions.length;
+
+    questionBox.innerHTML = q.question;
+
+    answer1.innerHTML = q.options[0] || "";
+    answer2.innerHTML = q.options[1] || "";
+    answer3.innerHTML = q.options[2] || "";
+    answer4.innerHTML = q.options[3] || "";
+
+    speechBox.innerHTML = "آماده‌ای؟";
+
+}
+
+/* ==========================================
+بروزرسانی نوار بالا
+========================================== */
+
+function updateStatus(){
+
+    coinValue.innerHTML = score;
+
+    starValue.innerHTML = stars;
+
+    batteryValue.innerHTML = battery + "%";
+
+}
