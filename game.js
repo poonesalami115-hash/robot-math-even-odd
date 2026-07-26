@@ -15,6 +15,13 @@ const finishPage = document.getElementById("finishPage");
 const introSpeech = document.getElementById("introSpeech");
 const loadingFill = document.getElementById("loadingFill");
 
+// ---------- صفحه ورود ----------
+
+const studentName = document.getElementById("studentName");
+const studentCode = document.getElementById("studentCode");
+const loginError = document.getElementById("loginError");
+const startBtn = document.getElementById("startBtn");
+
 // ---------- متن‌های معرفی ----------
 
 const introMessages = [
