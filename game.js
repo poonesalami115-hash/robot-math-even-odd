@@ -212,6 +212,8 @@ answer4.addEventListener("click", function(){
 
 function checkAnswer(selected){
 
+    alert("کلیک شد");
+
     const q = questions[currentQuestion];
 
     if(selected === q.answer){
