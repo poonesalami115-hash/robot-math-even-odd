@@ -118,6 +118,55 @@ function checkLogin(){
 
     loginPage.classList.add("hidden");
 
-    gamePage.classList.remove("hidden");
+gamePage.classList.remove("hidden");
+
+startGame();
+} 
+/* ==========================================
+بازی
+========================================== */
+
+let currentQuestion = 0;
+
+const questionBox = document.getElementById("questionBox");
+
+const currentQuestionSpan = document.getElementById("currentQuestion");
+
+const totalQuestionSpan = document.getElementById("totalQuestion");
+
+const answer1 = document.getElementById("answer1");
+const answer2 = document.getElementById("answer2");
+const answer3 = document.getElementById("answer3");
+const answer4 = document.getElementById("answer4");
+
+const speechBox = document.getElementById("speechBox");
+
+function startGame(){
+
+    currentQuestion = 0;
+
+    totalQuestionSpan.innerHTML = questions.length;
+
+    showQuestion();
+
+}
+
+function showQuestion(){
+
+    const q = questions[currentQuestion];
+
+    currentQuestionSpan.innerHTML = currentQuestion + 1;
+
+    questionBox.innerHTML = q.question;
+
+    answer1.innerHTML = q.options[0] || "";
+
+    answer2.innerHTML = q.options[1] || "";
+
+    answer3.innerHTML = q.options[2] || "";
+
+    answer4.innerHTML = q.options[3] || "";
+
+    speechBox.innerHTML = "پاسخ درست را انتخاب کن 🌸";
 
 }
