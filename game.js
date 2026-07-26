@@ -22,6 +22,12 @@ const studentName = document.getElementById("studentName");
 const studentCode = document.getElementById("studentCode");
 const loginError = document.getElementById("loginError");
 const startBtn = document.getElementById("startBtn");
+/* ---------- صداها ---------- */
+
+const correctSound = document.getElementById("correctSound");
+const wrongSound   = document.getElementById("wrongSound");
+const coinSound    = document.getElementById("coinSound");
+const winSound     = document.getElementById("winSound");
 
 /* ---------- متن معرفی ---------- */
 
@@ -212,34 +218,37 @@ answer4.addEventListener("click", function(){
 
 function checkAnswer(selected){
 
-    alert("کلیک شد");
-
     const q = questions[currentQuestion];
 
     if(selected === q.answer){
 
-        speechBox.textContent = "آفرین 🌸";
+        correctSound.play();
+        coinSound.play();
 
-    }else{
-
-        speechBox.textContent = "اشتباه بود 😊";
-
-    }
-
-    setTimeout(function(){
+        speechBox.innerHTML = "آفرین 🌸";
 
         currentQuestion++;
 
-        if(currentQuestion < questions.length){
+        setTimeout(function(){
 
-            showQuestion();
+            if(currentQuestion < questions.length){
 
-        }else{
+                showQuestion();
 
-            alert("آزمون تمام شد.");
+            }else{
 
-        }
+                finishGame();
 
-    },800);
+            }
 
-}
+        },1000);
+
+    }else{
+
+        wrongSound.play();
+
+        speechBox.innerHTML = "❌ دوباره فکر کن";
+
+        // سوال عوض نمی‌شود
+    }
+}    
