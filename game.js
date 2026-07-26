@@ -153,3 +153,47 @@ function showQuestion(){
     speechBox.innerHTML = "پاسخ درست را انتخاب کن 🌸";
 
 }
+/* ==========================================
+بررسی پاسخ
+========================================== */
+
+answer1.onclick = ()=>checkAnswer(0);
+answer2.onclick = ()=>checkAnswer(1);
+answer3.onclick = ()=>checkAnswer(2);
+answer4.onclick = ()=>checkAnswer(3);
+
+function checkAnswer(index){
+
+    const q = questions[currentQuestion];
+
+    if(index === q.answer){
+
+        speechBox.innerHTML = "آفرین 🌸";
+
+        score++;
+
+        stars++;
+
+    }else{
+
+        speechBox.innerHTML = "اشتباه بود 😊";
+
+    }
+
+    setTimeout(function(){
+
+        currentQuestion++;
+
+        if(currentQuestion < questions.length){
+
+            showQuestion();
+
+        }else{
+
+            alert("آزمون تمام شد.");
+
+        }
+
+    },1000);
+
+}
