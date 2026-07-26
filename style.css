@@ -186,6 +186,8 @@ body{
 
     background:#39b54a;
 
+    transition: width .05s linear;
+
 }
 /* =========================================
 انیمیشن ربات
