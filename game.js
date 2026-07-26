@@ -144,7 +144,7 @@ let battery = 100;
 
 /* ---------- عناصر بازی ---------- */
 
-const questionNumber = document.getElementById("questionNumber");
+const questionNumber = document.getElementById("currentQuestion");
 const questionBox = document.getElementById("questionBox");
 
 const answer1 = document.getElementById("answer1");
@@ -198,8 +198,7 @@ function showQuestion(){
 
     const q = questions[currentQuestion];
 
-    questionNumber.innerHTML =
-        "سؤال " + (currentQuestion + 1) + " از " + questions.length;
+    questionNumber.innerHTML = currentQuestion + 1;
 
     questionBox.innerHTML = q.question;
 
