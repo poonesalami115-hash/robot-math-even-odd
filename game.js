@@ -1,6 +1,7 @@
 /* ==========================================
-ربات ریاضی کلاس ششم
+ربات ریاضی | کلاس ششم
 game.js
+بخش ۱
 ========================================== */
 
 /* ---------- صفحات ---------- */
@@ -15,7 +16,7 @@ const finishPage = document.getElementById("finishPage");
 const introSpeech = document.getElementById("introSpeech");
 const loadingFill = document.getElementById("loadingFill");
 
-/* ---------- صفحه ورود ---------- */
+/* ---------- ورود ---------- */
 
 const studentName = document.getElementById("studentName");
 const studentCode = document.getElementById("studentCode");
@@ -35,11 +36,7 @@ const introMessages = [
 شروع برنامه
 ========================================== */
 
-window.onload = function () {
-
-    startIntro();
-
-};
+window.addEventListener("load", startIntro);
 
 /* ==========================================
 صفحه معرفی
@@ -48,10 +45,9 @@ window.onload = function () {
 function startIntro(){
 
     let percent = 0;
-
     let messageIndex = 0;
 
-    introSpeech.innerHTML = introMessages[0];
+    introSpeech.textContent = introMessages[0];
 
     const speechTimer = setInterval(function(){
 
@@ -59,7 +55,7 @@ function startIntro(){
 
         if(messageIndex < introMessages.length){
 
-            introSpeech.innerHTML = introMessages[messageIndex];
+            introSpeech.textContent = introMessages[messageIndex];
 
         }
 
@@ -77,7 +73,6 @@ function startIntro(){
             clearInterval(loadingTimer);
 
             introPage.classList.add("hidden");
-
             loginPage.classList.remove("hidden");
 
         }
@@ -87,22 +82,21 @@ function startIntro(){
 }
 
 /* ==========================================
-ورود دانش آموز
+ورود دانش‌آموز
 ========================================== */
 
-startBtn.addEventListener("click",checkLogin);
+startBtn.addEventListener("click", checkLogin);
 
 function checkLogin(){
 
-    loginError.innerHTML = "";
+    loginError.textContent = "";
 
     const name = studentName.value.trim();
-
     const code = studentCode.value.trim();
 
     if(name === ""){
 
-        loginError.innerHTML = "نام و نام خانوادگی را وارد کنید.";
+        loginError.textContent = "نام و نام خانوادگی را وارد کنید.";
 
         return;
 
@@ -110,63 +104,27 @@ function checkLogin(){
 
     if(code.length !== 10){
 
-        loginError.innerHTML = "کد ملی باید ۱۰ رقم باشد.";
+        loginError.textContent = "کد ملی باید ۱۰ رقم باشد.";
 
         return;
 
     }
 
     loginPage.classList.add("hidden");
+    gamePage.classList.remove("hidden");
 
-gamePage.classList.remove("hidden");
-
-startGame();
-} 
-/* ==========================================
-بازی
-========================================== */
-
-let currentQuestion = 0;
-
-const questionBox = document.getElementById("questionBox");
-
-const currentQuestionSpan = document.getElementById("currentQuestion");
-
-const totalQuestionSpan = document.getElementById("totalQuestion");
-
-const answer1 = document.getElementById("answer1");
-const answer2 = document.getElementById("answer2");
-const answer3 = document.getElementById("answer3");
-const answer4 = document.getElementById("answer4");
-
-const speechBox = document.getElementById("speechBox");
-
-function startGame(){
-
-    currentQuestion = 0;
-
-    totalQuestionSpan.innerHTML = questions.length;
-
-    showQuestion();
+    // بخش دوم این تابع را کامل می‌کند
+    startGame();
 
 }
 
-function showQuestion(){
+/* ==========================================
+تابع موقت
+(در بخش ۲ کامل می‌شود)
+========================================== */
 
-    const q = questions[currentQuestion];
+function startGame(){
 
-    currentQuestionSpan.innerHTML = currentQuestion + 1;
-
-    questionBox.innerHTML = q.question;
-
-    answer1.innerHTML = q.options[0] || "";
-
-    answer2.innerHTML = q.options[1] || "";
-
-    answer3.innerHTML = q.options[2] || "";
-
-    answer4.innerHTML = q.options[3] || "";
-
-    speechBox.innerHTML = "پاسخ درست را انتخاب کن 🌸";
+    console.log("شروع بازی");
 
 }
