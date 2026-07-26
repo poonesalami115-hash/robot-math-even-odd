@@ -128,3 +128,64 @@ function startGame(){
     console.log("شروع بازی");
 
 }
+/* ==========================================
+بخش ۲
+نمایش سؤال
+========================================== */
+
+// وضعیت بازی
+
+let currentQuestion = 0;
+
+// عناصر صفحه
+
+const questionBox = document.getElementById("questionBox");
+
+const currentQuestionSpan = document.getElementById("currentQuestion");
+
+const totalQuestionSpan = document.getElementById("totalQuestion");
+
+const speechBox = document.getElementById("speechBox");
+
+const answer1 = document.getElementById("answer1");
+const answer2 = document.getElementById("answer2");
+const answer3 = document.getElementById("answer3");
+const answer4 = document.getElementById("answer4");
+
+/* ==========================================
+شروع واقعی بازی
+========================================== */
+
+function startGame(){
+
+    currentQuestion = 0;
+
+    totalQuestionSpan.textContent = questions.length;
+
+    showQuestion();
+
+}
+
+/* ==========================================
+نمایش سؤال
+========================================== */
+
+function showQuestion(){
+
+    const q = questions[currentQuestion];
+
+    currentQuestionSpan.textContent = currentQuestion + 1;
+
+    questionBox.textContent = q.question;
+
+    speechBox.textContent = "پاسخ درست را انتخاب کن 🌸";
+
+    answer1.textContent = q.options[0] || "";
+
+    answer2.textContent = q.options[1] || "";
+
+    answer3.textContent = q.options[2] || "";
+
+    answer4.textContent = q.options[3] || "";
+
+}
