@@ -84,3 +84,38 @@ function showLoginPage(){
     loginPage.classList.remove("hidden");
 
 }
+/* =========================================
+شروع بازی
+========================================= */
+
+startBtn.addEventListener("click", checkLogin);
+
+function checkLogin(){
+
+    loginError.innerHTML = "";
+
+    const name = studentName.value.trim();
+
+    const code = studentCode.value.trim();
+
+    if(name === ""){
+
+        loginError.innerHTML = "نام و نام خانوادگی را وارد کنید.";
+
+        return;
+
+    }
+
+    if(code.length !== 10){
+
+        loginError.innerHTML = "کد ملی باید ۱۰ رقم باشد.";
+
+        return;
+
+    }
+
+    loginPage.classList.add("hidden");
+
+    gamePage.classList.remove("hidden");
+
+}
