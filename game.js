@@ -1,88 +1,86 @@
-/* =========================================
+/* ==========================================
 ربات ریاضی | کلاس ششم
 game.js
-========================================= */
+==========================================*/
 
-// صفحات
+// ---------- صفحات ----------
 
 const introPage = document.getElementById("introPage");
 const loginPage = document.getElementById("loginPage");
 const gamePage = document.getElementById("gamePage");
 const finishPage = document.getElementById("finishPage");
 
-// معرفی
+// ---------- معرفی ----------
 
 const introSpeech = document.getElementById("introSpeech");
 const loadingFill = document.getElementById("loadingFill");
 
-// ورود
-
-const studentName = document.getElementById("studentName");
-const studentCode = document.getElementById("studentCode");
-const loginError = document.getElementById("loginError");
-const startBtn = document.getElementById("startBtn");
-
-// وضعیت بازی
-
-let battery = 0;
-let stars = 0;
-let coins = 0;
-let score = 0;
-
-let currentQuestion = 0;
-let correctCount = 0;
-let wrongCount = 0;
-
-// شروع برنامه
-
-window.onload = startIntro;
-/* =========================================
-شروع صفحه معرفی
-========================================= */
+// ---------- متن‌های معرفی ----------
 
 const introMessages = [
 
     "سلام دوست من 🌸",
+
     "من ربات ریاضی هستم 🤖",
+
     "امروز با هم بازی می‌کنیم.",
+
     "آماده شو..."
 
 ];
 
-let introIndex = 0;
-let loading = 0;
+// ---------- شروع ----------
+
+window.addEventListener("load", startIntro);
+
+// ---------- صفحه معرفی ----------
 
 function startIntro(){
 
-    introSpeech.innerHTML = introMessages[0];
+    let messageIndex = 0;
 
-    const messageTimer = setInterval(()=>{
+    let percent = 0;
 
-        introIndex++;
+    introSpeech.textContent = introMessages[0];
 
-        if(introIndex < introMessages.length){
+    const messageTimer = setInterval(function(){
 
-            introSpeech.innerHTML = introMessages[introIndex];
+        messageIndex++;
+
+        if(messageIndex < introMessages.length){
+
+            introSpeech.textContent = introMessages[messageIndex];
 
         }
 
     },1500);
 
-    const loadingTimer = setInterval(()=>{
+    const loadingTimer = setInterval(function(){
 
-        loading++;
+        percent++;
 
-        loadingFill.style.width = loading + "%";
+        loadingFill.style.width = percent + "%";
 
-        if(loading >= 100){
+        if(percent >= 100){
+
+            clearInterval(messageTimer);
 
             clearInterval(loadingTimer);
-            clearInterval(messageTimer);
 
             showLoginPage();
 
         }
 
     },50);
+
+}
+
+// ---------- نمایش صفحه ورود ----------
+
+function showLoginPage(){
+
+    introPage.classList.add("hidden");
+
+    loginPage.classList.remove("hidden");
 
 }
