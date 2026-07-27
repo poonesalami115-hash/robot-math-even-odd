@@ -649,3 +649,119 @@ screenShotBtn.addEventListener("click",function(){
     alert("در نسخه بعدی فعال می‌شود.");
 
 });
+/* ==========================================
+بخش ۶
+پایان بازی + دکمه‌ها
+========================================== */
+
+function finishGame() {
+
+    clearInterval(timer);
+
+    backgroundMusic.pause();
+
+    robot.src = "robot-finish.png";
+
+    robotFinish.currentTime = 0;
+    robotFinish.play();
+
+    fireWorks.currentTime = 0;
+    fireWorks.play();
+
+    finishPage.classList.remove("hidden");
+    gamePage.classList.add("hidden");
+
+    /* اطلاعات دانش آموز */
+
+    resultName.innerHTML = studentName.value;
+    resultCode.innerHTML = studentCode.value;
+
+    /* تاریخ و ساعت */
+
+    const now = new Date();
+
+    resultDate.innerHTML =
+        now.toLocaleDateString("fa-IR");
+
+    resultTime.innerHTML =
+        now.toLocaleTimeString("fa-IR");
+
+    /* آمار */
+
+    correctCount.innerHTML = correctAnswers;
+    wrongCount.innerHTML = wrongAnswers;
+
+    resultBattery.innerHTML = battery + "%";
+    resultStars.innerHTML = stars;
+    resultCoins.innerHTML = coins;
+
+    /* امتیاز */
+
+    const score = correctAnswers * 5;
+
+    resultScore.innerHTML = score;
+
+    const percent =
+        Math.round((correctAnswers / questions.length) * 100);
+
+    resultPercent.innerHTML = percent + "%";
+
+    /* مدال */
+
+    if (percent >= 90) {
+
+        resultMedal.src = "gold.png";
+        finishMessage.innerHTML =
+            "🌟 عالی بود! تو یک ریاضی‌دان حرفه‌ای هستی.";
+
+    }
+
+    else if (percent >= 75) {
+
+        resultMedal.src = "silver.png";
+        finishMessage.innerHTML =
+            "👏 خیلی خوب بود، فقط کمی بیشتر تمرین کن.";
+
+    }
+
+    else if (percent >= 50) {
+
+        resultMedal.src = "bronze.png";
+        finishMessage.innerHTML =
+            "🙂 خوب بود، دفعه بعد بهتر می‌شوی.";
+
+    }
+
+    else {
+
+        resultMedal.src = "tryagain.png";
+        finishMessage.innerHTML =
+            "💪 دوباره تلاش کن، مطمئنم موفق می‌شوی.";
+
+    }
+
+}
+
+/* ==========================================
+دکمه شروع مجدد
+========================================== */
+
+playAgainBtn.addEventListener("click", function () {
+
+    location.reload();
+
+});
+
+/* ==========================================
+دکمه اسکرین‌شات
+========================================== */
+
+screenShotBtn.addEventListener("click", function () {
+
+    alert("در نسخه بعدی امکان ذخیره تصویر کارنامه فعال می‌شود.");
+
+});
+
+/* ==========================================
+پایان فایل game.js
+========================================== */
