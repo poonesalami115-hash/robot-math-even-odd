@@ -213,8 +213,7 @@ const introMessages = [
 
 window.onload = function () {
 
-    totalQuestionText.innerHTML = questions.length;
-
+    
     startIntro();
 
 };
