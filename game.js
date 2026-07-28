@@ -319,7 +319,7 @@ function startGame(){
 
     wrongTry = 0;
 
-    batteryValue.innerHTML = "0%";م
+    batteryValue.innerHTML = "0%";
     starValue.innerHTML = "0";
     coinValue.innerHTML = "0";
 
