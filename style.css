@@ -404,7 +404,7 @@ display:flex;
 
 justify-content:center;
 
-z-index:6;
+z-index:50;
 
 }
 
@@ -546,7 +546,7 @@ align-items:center;
 
 position:absolute;
 
-top:530px;
+top:540px;
 
 left:50%;
 
