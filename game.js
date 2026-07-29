@@ -383,7 +383,7 @@ console.log(questionBox);
 
     robot.src = "robot.png";
 
-    speechBox.innerHTML = "جواب را انتخاب کن 🌸";
+
 
 }
 /* ==========================================
