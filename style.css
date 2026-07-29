@@ -305,12 +305,10 @@ transform:scale(1.05);
 position:absolute;
 
 top:10px;
-
 right:10px;
-
 left:10px;
 
-z-index:10;
+z-index:20;
 
 display:flex;
 
@@ -344,6 +342,10 @@ margin-left:8px;
 
 }
 
+/* ===========================
+تایمر
+=========================== */
+
 #timerBox{
 
 position:absolute;
@@ -352,7 +354,7 @@ top:70px;
 
 left:20px;
 
-z-index:10;
+z-index:20;
 
 background:#ffffffdd;
 
@@ -366,11 +368,47 @@ font-weight:bold;
 
 }
 
+/* ===========================
+شماره سؤال
+=========================== */
+
+#questionInfo{
+
+position:absolute;
+
+top:130px;
+
+left:20px;
+
+z-index:20;
+
+background:#ffffffdd;
+
+padding:8px 18px;
+
+border-radius:15px;
+
+font-size:20px;
+
+font-weight:bold;
+
+display:flex;
+
+align-items:center;
+
+gap:6px;
+
+}
+
+/* ===========================
+ربات
+=========================== */
+
 #robotArea{
 
 position:absolute;
 
-top:70px;
+top:80px;
 
 left:50%;
 
@@ -382,11 +420,15 @@ z-index:5;
 
 #robot{
 
-width:180px;
+width:170px;
 
-max-width:70vw;
+max-width:65vw;
 
 }
+
+/* ===========================
+متن ربات
+=========================== */
 
 #speechArea{
 
@@ -404,13 +446,13 @@ display:flex;
 
 justify-content:center;
 
-z-index:50;
+z-index:15;
 
 }
 
 #speechBox{
 
-background:#fff;
+background:#ffffff;
 
 padding:18px 25px;
 
@@ -423,15 +465,26 @@ font-weight:bold;
 text-align:center;
 
 min-width:260px;
-min-height:70px;   
+
+min-height:70px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
 
 }
+
+/* ===========================
+باتری
+=========================== */
 
 #batteryBar{
 
 position:absolute;
 
-top:420px;
+top:350px;
 
 left:50%;
 
@@ -448,6 +501,8 @@ background:#ffffff;
 border-radius:30px;
 
 overflow:hidden;
+
+z-index:15;
 
 }
 
@@ -472,21 +527,25 @@ position:absolute;
 
 top:120px;
 
-left:180px;
+left:20px;
 
-transform:translateX(-50%);
+z-index:20;
 
 background:#ffffffdd;
 
-padding:10px 20px;
+padding:8px 18px;
 
 border-radius:15px;
 
-font-size:22px;
+font-size:20px;
 
 font-weight:bold;
 
-z-index:10;
+display:flex;
+
+align-items:center;
+
+gap:6px;
 
 }
 
@@ -494,19 +553,19 @@ z-index:10;
 
 position:absolute;
 
-top:420px;
+top:390px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:90%;
+width:92%;
 
 display:flex;
 
 justify-content:center;
 
-z-index:10;
+z-index:20;
 
 }
 
@@ -514,11 +573,11 @@ z-index:10;
 
 width:100%;
 
-max-width:700px;
+max-width:720px;
 
 background:#ffffff;
 
-padding:20px;
+padding:18px 20px;
 
 border-radius:20px;
 
@@ -536,6 +595,8 @@ justify-content:center;
 
 align-items:center;
 
+box-shadow:0 4px 12px rgba(0,0,0,.25);
+
 }
 
 /* ===========================
@@ -546,29 +607,29 @@ align-items:center;
 
 position:absolute;
 
-top:540px;
+top:515px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:90%;
+width:92%;
 
-max-width:750px;
+max-width:720px;
 
 display:grid;
 
 grid-template-columns:1fr 1fr;
 
-gap:12px;
+gap:14px;
 
-z-index:20;
+z-index:25;
 
 }
 
 .answerBtn{
 
-padding:18px;
+padding:16px;
 
 border:none;
 
@@ -603,7 +664,6 @@ background:#1f68dc;
 transform:scale(.97);
 
 }
-
 /* ===========================
 صفحه پایان
 =========================== */
@@ -722,7 +782,7 @@ transform:scale(1.03);
 
 #robot{
 
-width:170px;
+width:150px;
 
 }
 
@@ -750,6 +810,13 @@ padding:14px;
 
 grid-template-columns:1fr;
 
+gap:10px;
+
+top:500px;
+
 }
 
 }
+
+
+    
