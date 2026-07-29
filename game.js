@@ -37,6 +37,7 @@ const robot = document.getElementById("robot");
 const speechBox = document.getElementById("speechBox");
 
 const questionBox = document.getElementById("questionBox");
+console.log(questionBox);
 
 const answer1 = document.getElementById("answer1");
 const answer2 = document.getElementById("answer2");
@@ -345,6 +346,8 @@ function startGame(){
 ========================================== */
 
 function showQuestion(){
+alert(JSON.stringify(questions[currentQuestion]));
+console.log(questionBox);   
 
     wrongTry = 0;
 
