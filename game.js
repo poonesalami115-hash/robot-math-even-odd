@@ -298,7 +298,9 @@ function checkLogin() {
 
     loginPage.classList.add("hidden");
     gamePage.classList.remove("hidden");
-
+console.log("questions =", questions);
+console.log("length =", questions.length);
+    
     startGame();
 
 }
@@ -346,7 +348,7 @@ function startGame(){
 ========================================== */
 
 function showQuestion(){
-alert(JSON.stringify(questions[currentQuestion]));
+console.log(questions[currentQuestion]);
 console.log(questionBox);   
 
     wrongTry = 0;
