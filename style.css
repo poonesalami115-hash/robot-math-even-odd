@@ -453,24 +453,29 @@ z-index:15;
 
 #speechBox{
 
-background:#ffffff;
+background:transparent;
 
-padding:18px 25px;
+padding:0;
 
-border-radius:20px;
+border:none;
+
+box-shadow:none;
 
 font-size:24px;
 
 font-weight:bold;
 
 text-align:center;
-display:inline-block;
 
 display:flex;
 
 align-items:center;
 
 justify-content:center;
+
+color:#ffffff;
+
+text-shadow:2px 2px 4px #000;
 
 }
 
