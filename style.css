@@ -782,5 +782,8 @@ top:500px;
 
 }
 
-
+#batteryBar, #loadingContainer, #speechArea {
+    display: none !important;
+}
     
+
