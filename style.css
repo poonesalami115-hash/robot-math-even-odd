@@ -484,8 +484,9 @@ text-shadow:2px 2px 4px #000;
 =========================== */
 
 #batteryBar{
-
+display:none;
 position:absolute;
+
 
 top:350px;
 
