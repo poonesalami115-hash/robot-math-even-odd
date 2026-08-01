@@ -431,52 +431,11 @@ max-width:65vw;
 =========================== */
 
 #speechArea{
-
-position:absolute;
-
-top:250px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:90%;
-
-display:flex;
-
-justify-content:center;
-
-z-index:15;
- overflow:hidden;   
-
+display:none;
 }
 
 #speechBox{
-
-background:transparent;
-
-padding:0;
-
-border:none;
-
-box-shadow:none;
-
-font-size:24px;
-
-font-weight:bold;
-
-text-align:center;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-color:#ffffff;
-
-text-shadow:2px 2px 4px #000;
-
+display:none;
 }
 
 /* ===========================
