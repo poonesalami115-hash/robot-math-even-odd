@@ -584,7 +584,7 @@ gap:6px;
 
 position:absolute;
 
-top:620px;
+top:800px;
 
 left:50%;
 
@@ -782,5 +782,11 @@ transform:scale(1.03);
     font-size: 18px;
     padding: 10px;
 }
+#questionArea{
+    top:300px;
+}
 
+#answersArea{
+    top:460px;
+}
 }
