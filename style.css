@@ -517,56 +517,32 @@ gap:6px;
 =========================== */
 
 #questionArea{
-
-position:absolute;
-
-top:310px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:90%;
-
-max-width:700px;
-
-display:flex;
-
-justify-content:center;
-
-z-index:20;
-
+    position: absolute;
+    top: 390px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
 }
 
 #questionBox{
-
-width:100%;
-
-max-width:720px;
-
-background: red !important; /*
-
-padding:12px 15px;
-
-border-radius:15px;
-
-font-size:20px;
-
-font-weight:bold;
-
-text-align:center;
-
-min-height:50px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-box-shadow:0 2px 8px rgba(0,0,0,.2);
-
+    width: 100%;
+    max-width: 720px;
+    background: #ffffff;
+    padding: 18px 20px;
+    border-radius: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    min-height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 /* ===========================
 گزینه‌ها
