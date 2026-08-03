@@ -376,11 +376,11 @@ font-weight:bold;
 
 position:absolute;
 
-top:115px;
+top:30px;
 
-left:20px;
+left:0px;
 
-z-index:20;
+z-index:6;
 
 background:#ffffffdd;
 
@@ -408,7 +408,7 @@ gap:6px;
 
 position:absolute;
 
-top:70px;
+top:80px;
 
 left:50%;
 
@@ -420,9 +420,9 @@ z-index:5;
 
 #robot{
 
-width:130px;
+width:170px;
 
-max-width:50vw;
+max-width:65vw;
 
 }
 
@@ -431,45 +431,11 @@ max-width:50vw;
 =========================== */
 
 #speechArea{
-
-position:absolute;
-
-top:250px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:90%;
-
-display:flex;
-
-justify-content:center;
-
-z-index:15;
-
+display:none;
 }
 
 #speechBox{
-
-background:#ffffff;
-
-padding:18px 25px;
-
-border-radius:20px;
-
-font-size:24px;
-
-font-weight:bold;
-
-text-align:center;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
+display:none;
 }
 
 /* ===========================
@@ -477,8 +443,9 @@ justify-content:center;
 =========================== */
 
 #batteryBar{
-
+display:none;
 position:absolute;
+
 
 top:350px;
 
@@ -501,6 +468,7 @@ overflow:hidden;
 z-index:15;
 
 }
+
 #batteryFill{
 
 width:0%;
@@ -544,37 +512,55 @@ gap:6px;
 
 }
 
-/* ===========================
-سؤال
-=========================== */
-
 #questionArea{
-    position: absolute;
-    top: 390px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 92%;
-    display: flex;
-    justify-content: center;
-    z-index: 20;
+
+position:absolute;
+
+top:390px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:92%;
+
+display:flex;
+
+justify-content:center;
+
+z-index:20;
+
 }
 
 #questionBox{
-    width: 100%;
-    max-width: 720px;
-    background: #ffffff;
-    padding: 18px 20px;
-    border-radius: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    min-height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,.25);
-}
 
+width:100%;
+
+max-width:720px;
+
+background:#ffffff;
+
+padding:18px 20px;
+
+border-radius:20px;
+
+font-size:28px;
+
+font-weight:bold;
+
+text-align:center;
+
+min-height:90px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+box-shadow:0 4px 12px rgba(0,0,0,.25);
+
+}
 
 /* ===========================
 گزینه‌ها
@@ -584,13 +570,13 @@ gap:6px;
 
 position:absolute;
 
-top:800px;
+top:515px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:90%;
+width:92%;
 
 max-width:720px;
 
@@ -598,12 +584,11 @@ display:grid;
 
 grid-template-columns:1fr 1fr;
 
-gap:8px;
+gap:14px;
 
 z-index:25;
 
 }
-
 
 .answerBtn{
 
@@ -759,34 +744,39 @@ transform:scale(1.03);
 @media (max-width:768px){
 
 #robot{
-    width:100px;
+
+width:150px;
+
 }
 
-#robotArea {
-    top: 45px;
+#speechBox{
+
+font-size:20px;
+
 }
 
-#timerBox {
-    top: 55px;
-    font-size: 16px;
-    padding: 5px 10px;
-}
+#questionBox{
 
-#questionInfo {
-    top: 100px;
-    font-size: 15px;
-    padding: 5px 10px;
+font-size:22px;
+
 }
 
 .answerBtn{
-    font-size: 18px;
-    padding: 10px;
-}
-#questionArea{
-    top:300px;
+
+font-size:20px;
+
+padding:14px;
+
 }
 
 #answersArea{
-    top:460px;
+
+grid-template-columns:1fr;
+
+gap:10px;
+
+top:500px;
+
 }
+
 }
