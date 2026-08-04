@@ -468,11 +468,9 @@ function startGame(){
 
 
 
-    showQuestion();
-
-
     startTimer();
 
+    showQuestion();
 
 
 }
