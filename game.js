@@ -214,6 +214,8 @@ const introMessages = [
 
 window.onload = function () {
 
+    alert("game loaded");
+
     startIntro();
 
 };
