@@ -417,6 +417,9 @@ function startGame(){
 
     currentQuestion = 0;
 
+    console.log("شروع نمایش سوال");
+    console.log("questions:", questions);
+
 
     battery = 0;
 
