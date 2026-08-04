@@ -351,7 +351,7 @@ function showQuestion(){
 
 wrongTry = 0;
 
-const q = questions[0];
+const q = questions[currentQuestion];
 
 questionBox.innerHTML = q.question;
 
@@ -428,22 +428,21 @@ robotCorrect.play();
 
 speechBox.innerHTML = "آفرین 🌸";    
 
-setTimeout(function(){    
+setTimeout(function(){
 
-    currentQuestion++;    
+    currentQuestion++;
 
-    if(currentQuestion < questions.length){    
+    if(currentQuestion < questions.length){
 
-        showQuestion();    
+        showQuestion();
 
-    }else{    
+    }else{
 
-        finishGame();    
+        finishGame();
 
-    }    
+    }
 
-},2500);
-
+},500);
 }
 
 /* ===========================
