@@ -358,18 +358,19 @@ function showQuestion(){
 wrongTry = 0;
 
 const q = questions[currentQuestion];
-alert(q.question);
-alert(q.options[0]);
-alert(q.options[1]);
+
 currentQuestionText.innerHTML =
 currentQuestion + 1;
 
-questionBox.innerHTML = "سؤال تستی";
+questionBox.innerHTML = q.question;
 
-answer1.innerHTML = "گزینه اول";
-answer2.innerHTML = "گزینه دوم";
-answer3.innerHTML = "گزینه سوم";
-answer4.innerHTML = "گزینه چهارم";
+answer1.innerHTML = q.options[0] || "";
+
+answer2.innerHTML = q.options[1] || "";
+
+answer3.innerHTML = q.options[2] || "";
+
+answer4.innerHTML = q.options[3] || "";
 
 answer1.innerHTML = String(q.options[0]);
 
