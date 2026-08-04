@@ -340,9 +340,11 @@ backgroundMusic.play().catch(()=>{});
 
 totalQuestionText.innerHTML = questions.length;  
 
-showQuestion();  
-startTimer();
+showQuestion();
 
+alert("بعد از showQuestion");
+
+startTimer();
 }
 
 /* ==========================================
