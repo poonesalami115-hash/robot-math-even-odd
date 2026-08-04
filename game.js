@@ -485,44 +485,20 @@ function startGame(){
 
 function showQuestion(){
 
-
     wrongTry = 0;
 
-
+    alert("showQuestion اجرا شد");
 
     const q = questions[currentQuestion];
 
+    questionBox.innerHTML = q.question;
 
+    answer1.innerHTML = q.options[0];
+    answer2.innerHTML = q.options[1];
+    answer3.innerHTML = q.options[2];
+    answer4.innerHTML = q.options[3];
 
-    currentQuestionText.innerHTML =
-    currentQuestion + 1;
-
-
-
-    questionBox.innerHTML =
-    q.question;
-
-
-
-    answer1.innerHTML =
-    q.options[0] || "";
-
-
-
-    answer2.innerHTML =
-    q.options[1] || "";
-
-
-
-    answer3.innerHTML =
-    q.options[2] || "";
-
-
-
-    answer4.innerHTML =
-    q.options[3] || "";
-
-
+}
 
 
     if(q.options.length === 2){
