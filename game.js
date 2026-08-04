@@ -359,7 +359,12 @@ const q = questions[currentQuestion];
 currentQuestionText.innerHTML =
 currentQuestion + 1;
 
-questionBox.innerHTML = String(q.question);
+questionBox.innerHTML = "سؤال تستی";
+
+answer1.innerHTML = "گزینه اول";
+answer2.innerHTML = "گزینه دوم";
+answer3.innerHTML = "گزینه سوم";
+answer4.innerHTML = "گزینه چهارم";
 
 answer1.innerHTML = String(q.options[0]);
 
