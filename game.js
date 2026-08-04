@@ -352,10 +352,13 @@ startTimer();
 ========================================== */
 
 function showQuestion(){
+
+alert("showQuestion اجرا شد");
+
 console.log(questions[currentQuestion]);
 console.log(questionBox);
 
-wrongTry = 0;  
+wrongTry = 0;
 
 const q = questions[currentQuestion];  
 
