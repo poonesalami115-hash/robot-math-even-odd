@@ -359,7 +359,7 @@ const q = questions[currentQuestion];
 
 currentQuestionText.innerHTML = currentQuestion + 1;  
 
-questionBox.innerHTML = q.question;  
+questionBox.innerHTML = "سؤال تستی";
 
 answer1.innerHTML = q.options[0] || "";  
 
