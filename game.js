@@ -214,9 +214,8 @@ const introMessages = [
 
 window.onload = function () {
 
-    startIntro();
-
-    alert("startIntro اجرا شد");
+    introPage.classList.add("hidden");
+    loginPage.classList.remove("hidden");
 
 };
 
