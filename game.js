@@ -214,8 +214,7 @@ const introMessages = [
 
 window.onload = function () {
 
-    
-    startIntro();
+startIntro();
 
 };
 
@@ -225,40 +224,40 @@ window.onload = function () {
 
 function startIntro() {
 
-    let percent = 0;
-    let messageIndex = 0;
+let percent = 0;  
+let messageIndex = 0;  
 
-    introSpeech.innerHTML = introMessages[0];
+introSpeech.innerHTML = introMessages[0];  
 
-    const speechTimer = setInterval(function () {
+const speechTimer = setInterval(function () {  
 
-        messageIndex++;
+    messageIndex++;  
 
-        if (messageIndex < introMessages.length) {
+    if (messageIndex < introMessages.length) {  
 
-            introSpeech.innerHTML = introMessages[messageIndex];
+        introSpeech.innerHTML = introMessages[messageIndex];  
 
-        }
+    }  
 
-    }, 1500);
+}, 1500);  
 
-    const loadingTimer = setInterval(function () {
+const loadingTimer = setInterval(function () {  
 
-        percent++;
+    percent++;  
 
-        loadingFill.style.width = percent + "%";
+    loadingFill.style.width = percent + "%";  
 
-        if (percent >= 100) {
+    if (percent >= 100) {  
 
-            clearInterval(speechTimer);
-            clearInterval(loadingTimer);
+        clearInterval(speechTimer);  
+        clearInterval(loadingTimer);  
 
-            introPage.classList.add("hidden");
-            loginPage.classList.remove("hidden");
+        introPage.classList.add("hidden");  
+        loginPage.classList.remove("hidden");  
 
-        }
+    }  
 
-    }, 50);
+}, 50);
 
 }
 
@@ -270,38 +269,39 @@ startBtn.addEventListener("click", checkLogin);
 
 function checkLogin() {
 
-    buttonSound.currentTime = 0;
-    buttonSound.play();
+buttonSound.currentTime = 0;  
+buttonSound.play();  
 
-    loginError.innerHTML = "";
+loginError.innerHTML = "";  
 
-    const name = studentName.value.trim();
-    const code = studentCode.value.trim();
+const name = studentName.value.trim();  
+const code = studentCode.value.trim();  
 
-    if (name === "") {
+if (name === "") {  
 
-        loginError.innerHTML =
-            "نام و نام خانوادگی را وارد کنید.";
+    loginError.innerHTML =  
+        "نام و نام خانوادگی را وارد کنید.";  
 
-        return;
+    return;  
 
-    }
+}  
 
-    if (code.length !== 10) {
+if (code.length !== 10) {  
 
-        loginError.innerHTML =
-            "کد ملی باید ۱۰ رقم باشد.";
+    loginError.innerHTML =  
+        "کد ملی باید ۱۰ رقم باشد.";  
 
-        return;
+    return;  
 
-    }
+}  
 
-    loginPage.classList.add("hidden");
-    gamePage.classList.remove("hidden");
+loginPage.classList.add("hidden");  
+gamePage.classList.remove("hidden");
+
 console.log("questions =", questions);
 console.log("length =", questions.length);
-    
-    startGame();
+
+startGame();
 
 }
 /* ==========================================
@@ -311,35 +311,35 @@ console.log("length =", questions.length);
 
 function startGame(){
 
-    currentQuestion = 0;
+currentQuestion = 0;  
 
-    correctAnswers = 0;
-    wrongAnswers = 0;
+correctAnswers = 0;  
+wrongAnswers = 0;  
 
-    battery = 0;
-    stars = 0;
-    coins = 0;
+battery = 0;  
+stars = 0;  
+coins = 0;  
 
-    wrongTry = 0;
+wrongTry = 0;  
 
-    batteryValue.innerHTML = "0%";
-    starValue.innerHTML = "0";
-    coinValue.innerHTML = "0";
+batteryValue.innerHTML = "0%";  
+starValue.innerHTML = "0";  
+coinValue.innerHTML = "0";  
 
-    batteryFill.style.width = "0%";
+batteryFill.style.width = "0%";  
 
-    speechBox.innerHTML = "شروع کنیم 🌸";
+speechBox.innerHTML = "شروع کنیم 🌸";  
 
-    robot.src = "robot.png";
+robot.src = "robot.png";  
 
-    backgroundMusic.currentTime = 0;
+backgroundMusic.currentTime = 0;  
 
-    backgroundMusic.play().catch(()=>{});
+backgroundMusic.play().catch(()=>{});  
 
-    totalQuestionText.innerHTML = questions.length;
+totalQuestionText.innerHTML = questions.length;  
 
-    showQuestion();
-    startTimer();
+showQuestion();  
+startTimer();
 
 }
 
@@ -349,41 +349,39 @@ function startGame(){
 
 function showQuestion(){
 console.log(questions[currentQuestion]);
-console.log(questionBox);   
+console.log(questionBox);
 
-    wrongTry = 0;
+wrongTry = 0;  
 
-    const q = questions[currentQuestion];
+const q = questions[currentQuestion];  
 
-    currentQuestionText.innerHTML = currentQuestion + 1;
+currentQuestionText.innerHTML = currentQuestion + 1;  
 
-    questionBox.innerHTML = q.question;
+questionBox.innerHTML = q.question;  
 
-    answer1.innerHTML = q.options[0] || "";
+answer1.innerHTML = q.options[0] || "";  
 
-    answer2.innerHTML = q.options[1] || "";
+answer2.innerHTML = q.options[1] || "";  
 
-    answer3.innerHTML = q.options[2] || "";
+answer3.innerHTML = q.options[2] || "";  
 
-    answer4.innerHTML = q.options[3] || "";
+answer4.innerHTML = q.options[3] || "";  
 
-    if(q.options.length == 2){
+if(q.options.length == 2){  
 
-        answer3.style.display = "none";
+    answer3.style.display = "none";  
 
-        answer4.style.display = "none";
+    answer4.style.display = "none";  
 
-    }else{
+}else{  
 
-        answer3.style.display = "block";
+    answer3.style.display = "block";  
 
-        answer4.style.display = "block";
+    answer4.style.display = "block";  
 
-    }
+}  
 
-    robot.src = "robot.png";
-
-
+robot.src = "robot.png";
 
 }
 /* ==========================================
@@ -392,131 +390,133 @@ console.log(questionBox);
 ========================================== */
 
 answer1.addEventListener("click", function () {
-    checkAnswer(0);
+checkAnswer(0);
 });
 
 answer2.addEventListener("click", function () {
-    checkAnswer(1);
+checkAnswer(1);
 });
 
 answer3.addEventListener("click", function () {
-    checkAnswer(2);
+checkAnswer(2);
 });
 
 answer4.addEventListener("click", function () {
-    checkAnswer(3);
+checkAnswer(3);
 });
 
 function checkAnswer(selected){
 
-    buttonSound.currentTime = 0;
-    buttonSound.play();
+buttonSound.currentTime = 0;  
+buttonSound.play();  
 
-    const q = questions[currentQuestion];
+const q = questions[currentQuestion];  
 
-    /* ===========================
-       پاسخ صحیح
-    =========================== */
+/* ===========================  
+   پاسخ صحیح  
+=========================== */  
 
-    if(selected === q.answer){
+if(selected === q.answer){  
 
-        wrongTry = 0;
+    wrongTry = 0;  
 
-        correctAnswers++;
+    correctAnswers++;  
 
-        battery = Math.min(100, battery + 5);
-        stars++;
-        coins += 10;
+    battery = Math.min(100, battery + 5);  
+    stars++;  
+    coins += 10;  
 
-        batteryValue.innerHTML = battery + "%";
-        starValue.innerHTML = stars;
-        coinValue.innerHTML = coins;
+    batteryValue.innerHTML = battery + "%";  
+    starValue.innerHTML = stars;  
+    coinValue.innerHTML = coins;  
 
-        batteryFill.style.width = battery + "%";
+    batteryFill.style.width = battery + "%";  
 
-        correctSound.currentTime = 0;
-        correctSound.play();
+    correctSound.currentTime = 0;  
+    correctSound.play();  
 
-        coinSound.currentTime = 0;
-        coinSound.play();
+    coinSound.currentTime = 0;  
+    coinSound.play();  
 
-        batterySound.currentTime = 0;
-        batterySound.play();
+    batterySound.currentTime = 0;  
+    batterySound.play();  
 
-        starSound.currentTime = 0;
-        starSound.play();
+    starSound.currentTime = 0;  
+    starSound.play();  
 
-        robotCorrect.currentTime = 0;
-        robotCorrect.play();
+    robotCorrect.currentTime = 0;  
+    robotCorrect.play();  
 
-        speechBox.innerHTML = "آفرین 🌸";
+    speechBox.innerHTML = "آفرین 🌸";  
 
-        setTimeout(function(){
+    setTimeout(function(){  
 
-            currentQuestion++;
+        currentQuestion++;  
 
-            if(currentQuestion < questions.length){
+        if(currentQuestion < questions.length){  
 
-                showQuestion();
+            showQuestion();  
 
-            }else{
+        }else{  
 
-                finishGame();
+            finishGame();  
 
-            }
+        }  
 
-        },2500);
+    },2500);  
 
-    }
+}  
 
-    /* ===========================
-       پاسخ غلط
-    =========================== */
+/* ===========================  
+   پاسخ غلط  
+=========================== */  
 
-    else{
+else{  
 
-        wrongTry++;
+    wrongTry++;  
 
-        wrongAnswers++;
+    wrongAnswers++;  
 
-        wrongSound.currentTime = 0;
-        wrongSound.play();
+    wrongSound.currentTime = 0;  
+    wrongSound.play();  
 
-        robotWrong.currentTime = 0;
-        robotWrong.play();
+    robotWrong.currentTime = 0;  
+    robotWrong.play();  
 
-        /* بار اول */
+    /* بار اول */  
 
-        if(wrongTry == 1){
+    if(wrongTry == 1){  
 
-            speechBox.innerHTML = "دوباره فکر کن 😊";
+        speechBox.innerHTML = "دوباره فکر کن 😊";  
 
-        }
+    }  
 
-    /* بار دوم */
+    /* بار دوم */  
 
-    else{
+    else{  
 
-        speechBox.innerHTML =
-        "پاسخ صحیح: " + q.options[q.answer];
+        speechBox.innerHTML =  
+        "پاسخ صحیح: " + q.options[q.answer];  
 
-        setTimeout(function(){
+        setTimeout(function(){  
 
-            currentQuestion++;
+            currentQuestion++;  
 
-            if(currentQuestion < questions.length){
+            if(currentQuestion < questions.length){  
 
-                showQuestion();
+                showQuestion();  
 
-            }else{
+            }else{  
 
-                finishGame();
+                finishGame();  
 
-            }
+            }  
 
-        },2500);
+        },3000);  
 
-    }
+    }  
+
+}
 
 }
 /* ==========================================
@@ -526,45 +526,45 @@ function checkAnswer(selected){
 
 function startTimer(){
 
-    clearInterval(timer);
+clearInterval(timer);  
 
-    minute = 40;
-    second = 0;
+minute = 40;  
+second = 0;  
 
-    const timerText = document.getElementById("timerText");
+const timerText = document.getElementById("timerText");  
 
-    if(!timerText) return;
+if(!timerText) return;  
 
-    timerText.innerHTML = "40:00";
+timerText.innerHTML = "40:00";  
 
-    timer = setInterval(function(){
+timer = setInterval(function(){  
 
-        if(second === 0){
+    if(second === 0){  
 
-            if(minute === 0){
+        if(minute === 0){  
 
-                clearInterval(timer);
+            clearInterval(timer);  
 
-                finishGame();
+            finishGame();  
 
-                return;
+            return;  
 
-            }
+        }  
 
-            minute--;
-            second = 59;
+        minute--;  
+        second = 59;  
 
-        }else{
+    }else{  
 
-            second--;
+        second--;  
 
-        }
+    }  
 
-        const s = second < 10 ? "0"+second : second;
+    const s = second < 10 ? "0"+second : second;  
 
-        timerText.innerHTML = minute + ":" + s;
+    timerText.innerHTML = minute + ":" + s;  
 
-    },1000);
+},1000);
 
 }
 
@@ -574,66 +574,66 @@ function startTimer(){
 
 function finishGame(){
 
-    clearInterval(timer);
+clearInterval(timer);  
 
-    backgroundMusic.pause();
+backgroundMusic.pause();  
 
-    robotFinish.currentTime = 0;
-    robotFinish.play();
+robotFinish.currentTime = 0;  
+robotFinish.play();  
 
-    fireWorks.currentTime = 0;
-    fireWorks.play();
+fireWorks.currentTime = 0;  
+fireWorks.play();  
 
-    gamePage.classList.add("hidden");
-    finishPage.classList.remove("hidden");
+gamePage.classList.add("hidden");  
+finishPage.classList.remove("hidden");  
 
-    resultName.innerHTML = studentName.value;
-    resultCode.innerHTML = studentCode.value;
+resultName.innerHTML = studentName.value;  
+resultCode.innerHTML = studentCode.value;  
 
-    correctCount.innerHTML = correctAnswers;
-    wrongCount.innerHTML = wrongAnswers;
+correctCount.innerHTML = correctAnswers;  
+wrongCount.innerHTML = wrongAnswers;  
 
-    resultBattery.innerHTML = battery + "%";
-    resultStars.innerHTML = stars;
-    resultCoins.innerHTML = coins;
+resultBattery.innerHTML = battery + "%";  
+resultStars.innerHTML = stars;  
+resultCoins.innerHTML = coins;  
 
-    const score = correctAnswers * 5;
+const score = correctAnswers * 5;  
 
-    resultScore.innerHTML = score;
+resultScore.innerHTML = score;  
 
-    const percent =
-    Math.round((correctAnswers/questions.length)*100);
+const percent =  
+Math.round((correctAnswers/questions.length)*100);  
 
-    resultPercent.innerHTML = percent + "%";
+resultPercent.innerHTML = percent + "%";  
 
-    if(percent >= 90){
+if(percent >= 90){  
 
-        resultMedal.src = "medal-gold.png";
-        finishMessage.innerHTML = "عالی بود 🌸";
+    resultMedal.src = "medal-gold.png";  
+    finishMessage.innerHTML = "عالی بود 🌸";  
 
-    }
+}  
 
-    else if(percent >= 70){
+else if(percent >= 70){  
 
-        resultMedal.src = "medal-silver.png";
-        finishMessage.innerHTML = "خیلی خوب بود 🌸";
+    resultMedal.src = "medal-silver.png";  
+    finishMessage.innerHTML = "خیلی خوب بود 🌸";  
 
-    }
+}  
 
-    else{
+else{  
 
-        resultMedal.src = "medal-bronze.png";
-        finishMessage.innerHTML = "آفرین، ادامه بده 🌸";
+    resultMedal.src = "medal-bronze.png";  
+    finishMessage.innerHTML = "آفرین، ادامه بده 🌸";  
 
-    }
+}  
 
-    const now = new Date();
+const now = new Date();  
 
-    resultDate.innerHTML =
-    now.toLocaleDateString("fa-IR");
+resultDate.innerHTML =  
+now.toLocaleDateString("fa-IR");  
 
-    resultTime.innerHTML =
-    now.toLocaleTimeString("fa-IR");
+resultTime.innerHTML =  
+now.toLocaleTimeString("fa-IR");
 
 }
 
@@ -643,13 +643,13 @@ function finishGame(){
 
 playAgainBtn.addEventListener("click",function(){
 
-    location.reload();
+location.reload();
 
 });
 
 screenShotBtn.addEventListener("click",function(){
 
-    alert("در نسخه بعدی فعال می‌شود.");
+alert("در نسخه بعدی فعال می‌شود.");
 
 });
 /* ==========================================
