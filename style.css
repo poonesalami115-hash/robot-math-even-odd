@@ -34,7 +34,7 @@ display:none !important;
 
 /* ========================= */
 
-section{
+section[id$="Page"]{
 
 position:absolute;
 
