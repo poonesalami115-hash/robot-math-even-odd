@@ -298,8 +298,11 @@ return;
 loginPage.classList.add("hidden");
 gamePage.classList.remove("hidden");
 
-console.log("questions =", questions);
-console.log("length =", questions.length);
+questionBox.style.display = "flex";
+answer1.style.display = "block";
+answer2.style.display = "block";
+answer3.style.display = "block";
+answer4.style.display = "block";
 
 startGame();
 
