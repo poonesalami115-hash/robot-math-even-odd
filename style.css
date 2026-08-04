@@ -368,37 +368,6 @@ font-weight:bold;
 
 }
 
-/* ===========================
-شماره سؤال
-=========================== */
-
-#questionInfo{
-
-position:absolute;
-
-top:100px;
-
-left:20px;
-
-z-index:6;
-
-background:#ffffffdd;
-
-padding:8px 18px;
-
-border-radius:15px;
-
-font-size:20px;
-
-font-weight:bold;
-
-display:flex;
-
-align-items:center;
-
-gap:6px;
-
-}
 
 /* ===========================
 ربات
