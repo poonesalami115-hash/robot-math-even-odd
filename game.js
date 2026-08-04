@@ -354,8 +354,6 @@ wrongTry = 0;
 const q = questions[currentQuestion];
 console.log(q);
 
-questionBox.innerHTML = "تست نمایش سوال";
-answer1.innerHTML = "گزینه تست ۱";
 
 currentQuestionText.innerHTML =
 currentQuestion + 1;
