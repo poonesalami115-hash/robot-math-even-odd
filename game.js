@@ -1,8 +1,10 @@
 /* ==========================================
 ربات ریاضی کلاس ششم
 game.js
-نسخه نهایی
+نسخه بازنویسی شده
+بخش ۱
 ========================================== */
+
 
 /* ===========================
 صفحات
@@ -13,12 +15,14 @@ const loginPage = document.getElementById("loginPage");
 const gamePage = document.getElementById("gamePage");
 const finishPage = document.getElementById("finishPage");
 
+
 /* ===========================
-معرفی
+صفحه معرفی
 =========================== */
 
 const introSpeech = document.getElementById("introSpeech");
 const loadingFill = document.getElementById("loadingFill");
+
 
 /* ===========================
 ورود
@@ -29,6 +33,7 @@ const studentCode = document.getElementById("studentCode");
 const loginError = document.getElementById("loginError");
 const startBtn = document.getElementById("startBtn");
 
+
 /* ===========================
 بازی
 =========================== */
@@ -37,30 +42,37 @@ const robot = document.getElementById("robot");
 const speechBox = document.getElementById("speechBox");
 
 const questionBox = document.getElementById("questionBox");
-console.log(questionBox);
 
 const answer1 = document.getElementById("answer1");
 const answer2 = document.getElementById("answer2");
 const answer3 = document.getElementById("answer3");
 const answer4 = document.getElementById("answer4");
 
+
 const currentQuestionText =
 document.getElementById("currentQuestion");
+
 
 const totalQuestionText =
 document.getElementById("totalQuestion");
 
+
 const batteryValue =
 document.getElementById("batteryValue");
+
 
 const starValue =
 document.getElementById("starValue");
 
+
 const coinValue =
 document.getElementById("coinValue");
 
+
 const batteryFill =
 document.getElementById("batteryFill");
+
+
 
 /* ===========================
 پایان بازی
@@ -69,47 +81,63 @@ document.getElementById("batteryFill");
 const resultName =
 document.getElementById("resultName");
 
+
 const resultCode =
 document.getElementById("resultCode");
+
 
 const resultDate =
 document.getElementById("resultDate");
 
+
 const resultTime =
 document.getElementById("resultTime");
+
 
 const correctCount =
 document.getElementById("correctCount");
 
+
 const wrongCount =
 document.getElementById("wrongCount");
+
 
 const resultScore =
 document.getElementById("resultScore");
 
+
 const resultPercent =
 document.getElementById("resultPercent");
+
 
 const resultBattery =
 document.getElementById("resultBattery");
 
+
 const resultStars =
 document.getElementById("resultStars");
+
 
 const resultCoins =
 document.getElementById("resultCoins");
 
+
 const resultMedal =
 document.getElementById("resultMedal");
+
 
 const finishMessage =
 document.getElementById("finishMessage");
 
+
 const playAgainBtn =
 document.getElementById("playAgainBtn");
 
+
 const screenShotBtn =
 document.getElementById("screenShotBtn");
+
+
 
 /* ===========================
 صداها
@@ -118,48 +146,56 @@ document.getElementById("screenShotBtn");
 const correctSound =
 document.getElementById("correctSound");
 
+
 const wrongSound =
 document.getElementById("wrongSound");
+
 
 const coinSound =
 document.getElementById("coinSound");
 
+
 const winSound =
 document.getElementById("winSound");
 
-/* موسیقی پس‌زمینه */
+
+
+/* ===========================
+فایل‌های صوتی اضافی
+=========================== */
 
 const backgroundMusic =
 new Audio("robot background.mp3");
 
-/* کلیک */
 
 const buttonSound =
 new Audio("button.mp3");
 
-/* باتری */
 
 const batterySound =
 new Audio("battery.mp3");
 
-/* ستاره */
 
 const starSound =
 new Audio("star.mp3");
 
-/* صدای ربات */
 
 const robotCorrect =
 new Audio("robot-correct.mp3");
 
+
 const robotWrong =
 new Audio("robot-wrong.mp3");
+
 
 const robotFinish =
 new Audio("robot-finish.mp3");
 
+
 const fireWorks =
 new Audio("fireworks.mp3");
+
+
 
 /* ===========================
 تنظیمات صدا
@@ -168,8 +204,10 @@ new Audio("fireworks.mp3");
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.25;
 
+
+
 /* ===========================
-متغیرها
+متغیرهای بازی
 =========================== */
 
 let currentQuestion = 0;
@@ -192,6 +230,8 @@ let minute = 40;
 
 let second = 0;
 
+
+
 /* ===========================
 متن معرفی
 =========================== */
@@ -209,460 +249,564 @@ const introMessages = [
 ];
 /* ==========================================
 بخش ۲
-شروع برنامه + معرفی + ورود
+شروع برنامه + معرفی ربات
 ========================================== */
 
-window.onload = function () {
 
-    alert("game loaded");
+window.onload = function(){
 
     startIntro();
 
 };
-/* ==========================================
-معرفی ربات
-========================================== */
 
-function startIntro() {
 
-let percent = 0;  
-let messageIndex = 0;  
-
-introSpeech.innerHTML = introMessages[0];  
-
-const speechTimer = setInterval(function () {  
-
-    messageIndex++;  
-
-    if (messageIndex < introMessages.length) {  
-
-        introSpeech.innerHTML = introMessages[messageIndex];  
-
-    }  
-
-}, 1500);  
-
-const loadingTimer = setInterval(function () {  
-
-    percent++;  
-
-    loadingFill.style.width = percent + "%";  
-
-    if (percent >= 100) {  
-
-        clearInterval(speechTimer);  
-        clearInterval(loadingTimer);  
-
-        introPage.classList.add("hidden");  
-        loginPage.classList.remove("hidden");  
-
-    }  
-
-}, 50);
-
-}
 
 /* ==========================================
-ورود دانش آموز
+معرفی ربات و نوار لودینگ
 ========================================== */
 
-startBtn.addEventListener("click", checkLogin);
 
-function checkLogin() {
+function startIntro(){
 
-buttonSound.currentTime = 0;  
-buttonSound.play();  
+    let percent = 0;
 
-loginError.innerHTML = "";  
+    let messageIndex = 0;
 
-const name = studentName.value.trim();  
-const code = studentCode.value.trim();  
 
-if (name === "") {  
+    introSpeech.innerHTML =
+    introMessages[0];
 
-    loginError.innerHTML =  
-        "نام و نام خانوادگی را وارد کنید.";  
 
-    return;  
 
-}  
+    const speechTimer = setInterval(function(){
 
-if (code.length !== 10) {  
 
-    loginError.innerHTML =  
-        "کد ملی باید ۱۰ رقم باشد.";  
+        messageIndex++;
 
-    return;  
 
-}  
+        if(messageIndex < introMessages.length){
 
-loginPage.classList.add("hidden");  
-gamePage.classList.remove("hidden");
+            introSpeech.innerHTML =
+            introMessages[messageIndex];
 
-console.log("questions =", questions);
-console.log("length =", questions.length);
+        }
 
-startGame();
+
+    },1500);
+
+
+
+
+    const loadingTimer = setInterval(function(){
+
+
+        percent++;
+
+
+        loadingFill.style.width =
+        percent + "%";
+
+
+
+        if(percent >= 100){
+
+
+            clearInterval(speechTimer);
+
+            clearInterval(loadingTimer);
+
+
+
+            introPage.classList.add("hidden");
+
+
+            loginPage.classList.remove("hidden");
+
+
+        }
+
+
+    },50);
+
+
 
 }
 /* ==========================================
 بخش ۳
-شروع بازی + نمایش سؤال
+ورود دانش‌آموز + شروع بازی
 ========================================== */
+
+
+startBtn.addEventListener("click", checkLogin);
+
+
+
+function checkLogin(){
+
+
+    buttonSound.currentTime = 0;
+    buttonSound.play();
+
+
+
+    loginError.innerHTML = "";
+
+
+
+    const name =
+    studentName.value.trim();
+
+
+
+    const code =
+    studentCode.value.trim();
+
+
+
+
+    if(name === ""){
+
+
+        loginError.innerHTML =
+        "نام و نام خانوادگی را وارد کنید.";
+
+
+        return;
+
+    }
+
+
+
+
+    if(code.length !== 10){
+
+
+        loginError.innerHTML =
+        "کد ملی باید ۱۰ رقم باشد.";
+
+
+        return;
+
+    }
+
+
+
+
+    loginPage.classList.add("hidden");
+
+
+    gamePage.classList.remove("hidden");
+
+
+
+    startGame();
+
+
+}
+
+
+
+
+/* ==========================================
+شروع بازی
+========================================== */
+
 
 function startGame(){
 
-currentQuestion = 0;  
-alert("تعداد سوالات = " + questions.length);
 
-correctAnswers = 0;  
-wrongAnswers = 0;  
+    currentQuestion = 0;
 
-battery = 0;  
-stars = 0;  
-coins = 0;  
 
-wrongTry = 0;  
+    battery = 0;
 
-batteryValue.innerHTML = "0%";  
-starValue.innerHTML = "0";  
-coinValue.innerHTML = "0";  
+    stars = 0;
 
-batteryFill.style.width = "0%";  
+    coins = 0;
 
-speechBox.innerHTML = "شروع کنیم 🌸";  
 
-robot.src = "robot.png";  
+    correctAnswers = 0;
 
-backgroundMusic.currentTime = 0;  
+    wrongAnswers = 0;
 
-backgroundMusic.play().catch(()=>{});  
 
-totalQuestionText.innerHTML = questions.length;  
+    wrongTry = 0;
 
-showQuestion();
 
-alert("بعد از showQuestion");
 
-startTimer();
-}
+    batteryValue.innerHTML = "0%";
 
-/* ==========================================
-نمایش سؤال
-========================================== */
+    starValue.innerHTML = "0";
 
-function showQuestion(){
+    coinValue.innerHTML = "0";
 
-alert("showQuestion اجرا شد");
 
-console.log(questions[currentQuestion]);
-console.log(questionBox);
 
-wrongTry = 0;
+    batteryFill.style.width = "0%";
 
-const q = questions[currentQuestion];  
 
-currentQuestionText.innerHTML = currentQuestion + 1;  
 
-questionBox.innerHTML = "سؤال تستی";
+    speechBox.innerHTML =
+    "شروع کنیم 🌸";
 
-answer1.innerHTML = q.options[0] || "";  
 
-answer2.innerHTML = q.options[1] || "";  
 
-answer3.innerHTML = q.options[2] || "";  
+    robot.src =
+    "robot.png";
 
-answer4.innerHTML = q.options[3] || "";  
 
-if(q.options.length == 2){  
 
-    answer3.style.display = "none";  
+    totalQuestionText.innerHTML =
+    questions.length;
 
-    answer4.style.display = "none";  
 
-}else{  
 
-    answer3.style.display = "block";  
+    backgroundMusic.currentTime = 0;
 
-    answer4.style.display = "block";  
 
-}  
+    backgroundMusic.play().catch(()=>{});
 
-robot.src = "robot.png";
+
+
+    showQuestion();
+
+
+    startTimer();
+
+
 
 }
 /* ==========================================
 بخش ۴
-بررسی پاسخ
+نمایش سؤال و گزینه‌ها
 ========================================== */
 
-answer1.addEventListener("click", function () {
-checkAnswer(0);
-});
 
-answer2.addEventListener("click", function () {
-checkAnswer(1);
-});
-
-answer3.addEventListener("click", function () {
-checkAnswer(2);
-});
-
-answer4.addEventListener("click", function () {
-checkAnswer(3);
-});
-
-function checkAnswer(selected){
-
-buttonSound.currentTime = 0;  
-buttonSound.play();  
-
-const q = questions[currentQuestion];  
-
-/* ===========================  
-   پاسخ صحیح  
-=========================== */  
-
-if(selected === q.answer){  
-
-    wrongTry = 0;  
-
-    correctAnswers++;  
-
-    battery = Math.min(100, battery + 5);  
-    stars++;  
-    coins += 10;  
-
-    batteryValue.innerHTML = battery + "%";  
-    starValue.innerHTML = stars;  
-    coinValue.innerHTML = coins;  
-
-    batteryFill.style.width = battery + "%";  
-
-    correctSound.currentTime = 0;  
-    correctSound.play();  
-
-    coinSound.currentTime = 0;  
-    coinSound.play();  
-
-    batterySound.currentTime = 0;  
-    batterySound.play();  
-
-    starSound.currentTime = 0;  
-    starSound.play();  
-
-    robotCorrect.currentTime = 0;  
-    robotCorrect.play();  
-
-    speechBox.innerHTML = "آفرین 🌸";  
-
-    setTimeout(function(){  
-
-        currentQuestion++;  
-
-        if(currentQuestion < questions.length){  
-
-            showQuestion();  
-
-        }else{  
-
-            finishGame();  
-
-        }  
-
-    },2500);  
-
-}  
-
-/* ===========================
-   پاسخ غلط
-=========================== */
-
-else{
-
-    wrongTry++;
-
-    wrongAnswers++;
+function showQuestion(){
 
 
-    /* فقط بار اول */
+    wrongTry = 0;
 
-    if(wrongTry == 1){
 
-        wrongSound.currentTime = 0;
-        wrongSound.play();
 
-        robotWrong.currentTime = 0;
-        robotWrong.play();
+    const q = questions[currentQuestion];
 
-        speechBox.innerHTML =
-        "دوباره فکر کن 😊";
+
+
+    currentQuestionText.innerHTML =
+    currentQuestion + 1;
+
+
+
+    questionBox.innerHTML =
+    q.question;
+
+
+
+    answer1.innerHTML =
+    q.options[0] || "";
+
+
+
+    answer2.innerHTML =
+    q.options[1] || "";
+
+
+
+    answer3.innerHTML =
+    q.options[2] || "";
+
+
+
+    answer4.innerHTML =
+    q.options[3] || "";
+
+
+
+
+    if(q.options.length === 2){
+
+
+        answer3.style.display = "none";
+
+        answer4.style.display = "none";
+
 
     }
-
-
-    /* بار دوم */
 
     else{
 
-        speechBox.innerHTML =
-        "پاسخ صحیح: " + q.options[q.answer];
 
+        answer3.style.display = "block";
 
-        setTimeout(function(){
+        answer4.style.display = "block";
 
-            currentQuestion++;
-
-            if(currentQuestion < questions.length){
-
-                showQuestion();
-
-            }else{
-
-                finishGame();
-
-            }
-
-        },3000);
 
     }
 
-}
+
+
+    robot.src =
+    "robot.png";
+
+
 }
 /* ==========================================
 بخش ۵
 تایمر + پایان بازی
 ========================================== */
 
+
+/* ===========================
+تایمر بازی
+=========================== */
+
 function startTimer(){
 
-clearInterval(timer);  
+    clearInterval(timer);
 
-minute = 40;  
-second = 0;  
+    minute = 40;
+    second = 0;
 
-const timerText = document.getElementById("timerText");  
+    const timerText =
+    document.getElementById("timerText");
 
-if(!timerText) return;  
 
-timerText.innerHTML = "40:00";  
+    if(!timerText){
+        return;
+    }
 
-timer = setInterval(function(){  
 
-    if(second === 0){  
+    timerText.innerHTML = "40:00";
 
-        if(minute === 0){  
 
-            clearInterval(timer);  
+    timer = setInterval(function(){
 
-            finishGame();  
 
-            return;  
+        if(second === 0){
 
-        }  
 
-        minute--;  
-        second = 59;  
+            if(minute === 0){
 
-    }else{  
+                clearInterval(timer);
 
-        second--;  
+                finishGame();
 
-    }  
+                return;
 
-    const s = second < 10 ? "0"+second : second;  
+            }
 
-    timerText.innerHTML = minute + ":" + s;  
 
-},1000);
+            minute--;
+            second = 59;
+
+
+        }else{
+
+
+            second--;
+
+
+        }
+
+
+        let s =
+        second < 10 ? "0" + second : second;
+
+
+        timerText.innerHTML =
+        minute + ":" + s;
+
+
+    },1000);
+
 
 }
 
-/* ==========================================
+
+
+/* ===========================
 پایان بازی
-========================================== */
+=========================== */
+
 
 function finishGame(){
 
-clearInterval(timer);  
 
-backgroundMusic.pause();  
+    clearInterval(timer);
 
-robotFinish.currentTime = 0;  
-robotFinish.play();  
 
-fireWorks.currentTime = 0;  
-fireWorks.play();  
+    backgroundMusic.pause();
 
-gamePage.classList.add("hidden");  
-finishPage.classList.remove("hidden");  
 
-resultName.innerHTML = studentName.value;  
-resultCode.innerHTML = studentCode.value;  
+    robotFinish.currentTime = 0;
+    robotFinish.play();
 
-correctCount.innerHTML = correctAnswers;  
-wrongCount.innerHTML = wrongAnswers;  
 
-resultBattery.innerHTML = battery + "%";  
-resultStars.innerHTML = stars;  
-resultCoins.innerHTML = coins;  
+    fireWorks.currentTime = 0;
+    fireWorks.play();
 
-const score = correctAnswers * 5;  
 
-resultScore.innerHTML = score;  
 
-const percent =  
-Math.round((correctAnswers/questions.length)*100);  
+    gamePage.classList.add("hidden");
 
-resultPercent.innerHTML = percent + "%";  
+    finishPage.classList.remove("hidden");
 
-if(percent >= 90){  
 
-    resultMedal.src = "medal-gold.png";  
-    finishMessage.innerHTML = "عالی بود 🌸";  
 
-}  
+    resultName.innerHTML =
+    studentName.value;
 
-else if(percent >= 70){  
 
-    resultMedal.src = "medal-silver.png";  
-    finishMessage.innerHTML = "خیلی خوب بود 🌸";  
+    resultCode.innerHTML =
+    studentCode.value;
 
-}  
 
-else{  
 
-    resultMedal.src = "medal-bronze.png";  
-    finishMessage.innerHTML = "آفرین، ادامه بده 🌸";  
+    correctCount.innerHTML =
+    correctAnswers;
 
-}  
 
-const now = new Date();  
+    wrongCount.innerHTML =
+    wrongAnswers;
 
-resultDate.innerHTML =  
-now.toLocaleDateString("fa-IR");  
 
-resultTime.innerHTML =  
-now.toLocaleTimeString("fa-IR");
+
+    resultBattery.innerHTML =
+    battery + "%";
+
+
+    resultStars.innerHTML =
+    stars;
+
+
+    resultCoins.innerHTML =
+    coins;
+
+
+
+    const score =
+    correctAnswers * 5;
+
+
+    resultScore.innerHTML =
+    score;
+
+
+
+    const percent =
+    Math.round(
+    (correctAnswers / questions.length) * 100
+    );
+
+
+    resultPercent.innerHTML =
+    percent + "%";
+
+
+
+    if(percent >= 90){
+
+
+        resultMedal.src =
+        "medal-gold.png";
+
+
+        finishMessage.innerHTML =
+        "عالی بود 🌸";
+
+
+    }
+
+
+    else if(percent >= 70){
+
+
+        resultMedal.src =
+        "medal-silver.png";
+
+
+        finishMessage.innerHTML =
+        "خیلی خوب بود 🌸";
+
+
+    }
+
+
+    else{
+
+
+        resultMedal.src =
+        "medal-bronze.png";
+
+
+        finishMessage.innerHTML =
+        "آفرین، ادامه بده 🌸";
+
+
+    }
+
+
+
+    const now =
+    new Date();
+
+
+
+    resultDate.innerHTML =
+    now.toLocaleDateString("fa-IR");
+
+
+
+    resultTime.innerHTML =
+    now.toLocaleTimeString("fa-IR");
+
+
 
 }
-
 /* ==========================================
+بخش ۶
 دکمه‌ها
 ========================================== */
 
-playAgainBtn.addEventListener("click",function(){
 
-location.reload();
+/* ===========================
+بازی دوباره
+=========================== */
+
+playAgainBtn.addEventListener("click", function(){
+
+
+    buttonSound.currentTime = 0;
+
+    buttonSound.play();
+
+
+
+    location.reload();
+
 
 });
 
-screenShotBtn.addEventListener("click",function(){
 
-alert("در نسخه بعدی فعال می‌شود.");
+
+/* ===========================
+اسکرین‌شات
+=========================== */
+
+
+screenShotBtn.addEventListener("click", function(){
+
+
+    buttonSound.currentTime = 0;
+
+    buttonSound.play();
+
+
+
+    alert(
+    "قابلیت گرفتن اسکرین‌شات در نسخه بعدی فعال می‌شود."
+    );
+
 
 });
-/* ==========================================
-بخش ۶
-پایان بازی + دکمه‌ها
-========================================== */
