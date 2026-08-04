@@ -214,7 +214,9 @@ const introMessages = [
 
 window.onload = function () {
 
-startIntro();
+    startIntro();
+
+    alert("startIntro اجرا شد");
 
 };
 
