@@ -351,35 +351,14 @@ function showQuestion(){
 
 wrongTry = 0;
 
-const q = questions[currentQuestion];
-console.log(q);
+const q = questions[0];
 
-
-currentQuestionText.innerHTML =
-currentQuestion + 1;
 questionBox.innerHTML = q.question;
 
-answer1.innerHTML = q.options[0] || "";
-
-answer2.innerHTML = q.options[1] || "";
-
-answer3.innerHTML = q.options[2] || "";
-
-answer4.innerHTML = q.options[3] || "";
-
-if(q.options.length == 2){
-
-answer3.style.display = "none";    
-
-answer4.style.display = "none";
-
-}else{
-
-answer3.style.display = "block";    
-
-answer4.style.display = "block";
-
-}
+answer1.innerHTML = q.options[0];
+answer2.innerHTML = q.options[1];
+answer3.innerHTML = q.options[2];
+answer4.innerHTML = q.options[3];
 
 robot.src = "robot.png";
 
