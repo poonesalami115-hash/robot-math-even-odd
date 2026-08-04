@@ -214,11 +214,9 @@ const introMessages = [
 
 window.onload = function () {
 
-    introPage.classList.add("hidden");
-    loginPage.classList.remove("hidden");
+    startIntro();
 
 };
-
 /* ==========================================
 معرفی ربات
 ========================================== */
@@ -521,6 +519,7 @@ else{
 
     }
 
+}
 }
 /* ==========================================
 بخش ۵
