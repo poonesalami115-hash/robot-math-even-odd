@@ -500,6 +500,11 @@ justify-content:center;
 align-items:center;
 
 box-shadow:0 4px 12px rgba(0,0,0,.25);
+color:#000;
+position:relative;
+z-index:100;
+visibility:visible;
+opacity:1;
 
 }
 
@@ -567,6 +572,9 @@ background:#1f68dc;
 
 transform:scale(.97);
 
+color:#fff;
+visibility:visible;
+opacity:1;
 }
 /* ===========================
 صفحه پایان
