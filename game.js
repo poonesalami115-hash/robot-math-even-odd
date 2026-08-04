@@ -467,56 +467,58 @@ if(selected === q.answer){
 
 }  
 
-/* ===========================  
-   پاسخ غلط  
-=========================== */  
+/* ===========================
+   پاسخ غلط
+=========================== */
 
-else{  
+else{
 
-    wrongTry++;  
+    wrongTry++;
 
-    wrongAnswers++;  
+    wrongAnswers++;
 
-    wrongSound.currentTime = 0;  
-    wrongSound.play();  
 
-    robotWrong.currentTime = 0;  
-    robotWrong.play();  
+    /* فقط بار اول */
 
-    /* بار اول */  
+    if(wrongTry == 1){
 
-    if(wrongTry == 1){  
+        wrongSound.currentTime = 0;
+        wrongSound.play();
 
-        speechBox.innerHTML = "دوباره فکر کن 😊";  
+        robotWrong.currentTime = 0;
+        robotWrong.play();
 
-    }  
+        speechBox.innerHTML =
+        "دوباره فکر کن 😊";
 
-    /* بار دوم */  
+    }
 
-    else{  
 
-        speechBox.innerHTML =  
-        "پاسخ صحیح: " + q.options[q.answer];  
+    /* بار دوم */
 
-        setTimeout(function(){  
+    else{
 
-            currentQuestion++;  
+        speechBox.innerHTML =
+        "پاسخ صحیح: " + q.options[q.answer];
 
-            if(currentQuestion < questions.length){  
 
-                showQuestion();  
+        setTimeout(function(){
 
-            }else{  
+            currentQuestion++;
 
-                finishGame();  
+            if(currentQuestion < questions.length){
 
-            }  
+                showQuestion();
 
-        },3000);  
+            }else{
 
-    }  
+                finishGame();
 
-}
+            }
+
+        },3000);
+
+    }
 
 }
 /* ==========================================
