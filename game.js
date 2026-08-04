@@ -313,6 +313,7 @@ startGame();
 function startGame(){
 
 currentQuestion = 0;  
+alert("تعداد سوالات = " + questions.length);
 
 correctAnswers = 0;  
 wrongAnswers = 0;  
