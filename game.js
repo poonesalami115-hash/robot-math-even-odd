@@ -348,15 +348,16 @@ startTimer();
 ========================================== */
 
 function showQuestion(){
-console.log(questions[currentQuestion]);
-console.log(questionBox);
 
 wrongTry = 0;
 
 const q = questions[currentQuestion];
 
-currentQuestionText.innerHTML = currentQuestion + 1;
+questionBox.innerHTML = "تست نمایش سوال";
+answer1.innerHTML = "گزینه تست ۱";
 
+currentQuestionText.innerHTML =
+currentQuestion + 1;
 questionBox.innerHTML = q.question;
 
 answer1.innerHTML = q.options[0] || "";
