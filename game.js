@@ -493,30 +493,28 @@ function checkAnswer(selected){
 
         }
 
-        /* بار دوم */
+    /* بار دوم */
 
-        else{
+    else{
 
-            speechBox.innerHTML =
-            "پاسخ صحیح: " + q.options[q.answer];
+        speechBox.innerHTML =
+        "پاسخ صحیح: " + q.options[q.answer];
 
-            setTimeout(function(){
+        setTimeout(function(){
 
-                currentQuestion++;
+            currentQuestion++;
 
-                if(currentQuestion < questions.length){
+            if(currentQuestion < questions.length){
 
-                    showQuestion();
+                showQuestion();
 
-                }else{
+            }else{
 
-                    finishGame();
+                finishGame();
 
-                }
+            }
 
-            },3000);
-
-        }
+        },2500);
 
     }
 
