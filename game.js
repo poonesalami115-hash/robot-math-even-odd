@@ -358,7 +358,9 @@ function showQuestion(){
 wrongTry = 0;
 
 const q = questions[currentQuestion];
-
+alert(q.question);
+alert(q.options[0]);
+alert(q.options[1]);
 currentQuestionText.innerHTML =
 currentQuestion + 1;
 
