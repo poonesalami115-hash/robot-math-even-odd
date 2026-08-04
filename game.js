@@ -338,9 +338,12 @@ backgroundMusic.play().catch(()=>{});
 
 totalQuestionText.innerHTML = questions.length;
 
+currentQuestion = 0;
+
+questions[0] = questions[0];
+
 showQuestion();
 startTimer();
-
 }
 
 /* ==========================================
@@ -356,15 +359,15 @@ const q = questions[currentQuestion];
 currentQuestionText.innerHTML =
 currentQuestion + 1;
 
-questionBox.innerHTML = q.question;
+questionBox.innerHTML = String(q.question);
 
-answer1.innerHTML = q.options[0] || "";
+answer1.innerHTML = String(q.options[0]);
 
-answer2.innerHTML = q.options[1] || "";
+answer2.innerHTML = String(q.options[1]);
 
-answer3.innerHTML = q.options[2] || "";
+answer3.innerHTML = String(q.options[2]);
 
-answer4.innerHTML = q.options[3] || "";
+answer4.innerHTML = String(q.options[3]);
 
 if(q.options.length == 2){
 
