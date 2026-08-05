@@ -339,8 +339,6 @@ backgroundMusic.currentTime = 0;
 
 backgroundMusic.play().catch(()=>{});
 
-totalQuestionText.innerHTML = questions.length;
-
 currentQuestion = 0;
 
 questions[0] = questions[0];
@@ -358,8 +356,6 @@ function showQuestion(){
     wrongTry = 0;
 
     const q = questions[currentQuestion];
-
-    currentQuestionText.innerHTML = currentQuestion + 1;
 
     questionBox.textContent = q.question;
     questionBox.style.background = "yellow";
