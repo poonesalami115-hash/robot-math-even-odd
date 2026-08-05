@@ -363,6 +363,7 @@ currentQuestionText.innerHTML =
 currentQuestion + 1;
 
 questionBox.innerHTML = q.question;
+questionBox.style.background = "yellow";
 
 answer1.innerHTML = q.options[0] || "";
 
