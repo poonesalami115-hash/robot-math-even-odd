@@ -355,53 +355,41 @@ startTimer();
 
 function showQuestion(){
 
-wrongTry = 0;
+    wrongTry = 0;
 
-const q = questions[currentQuestion];
+    const q = questions[currentQuestion];
 
-currentQuestionText.innerHTML =
-currentQuestion + 1;
+    currentQuestionText.innerHTML = currentQuestion + 1;
 
-questionBox.innerHTML = q.question;
-questionBox.style.background = "yellow";
+    questionBox.textContent = q.question;
+    questionBox.style.background = "yellow";
 
-answer1.innerHTML = q.options[0] || "";
+    answer1.textContent = q.options[0];
+    answer2.textContent = q.options[1];
+    answer3.textContent = q.options[2];
+    answer4.textContent = q.options[3];
 
-answer2.innerHTML = q.options[1] || "";
+    if(q.options.length == 2){
 
-answer3.innerHTML = q.options[2] || "";
+        answer3.style.display = "none";
+        answer4.style.display = "none";
 
-answer4.innerHTML = q.options[3] || "";
+    }else{
 
-answer1.innerHTML = String(q.options[0]);
+        answer3.style.display = "block";
+        answer4.style.display = "block";
 
-answer2.innerHTML = String(q.options[1]);
+    }
 
-answer3.innerHTML = String(q.options[2]);
+    questionBox.style.color = "black";
+    questionBox.style.fontSize = "28px";
 
-answer4.innerHTML = String(q.options[3]);
+    answer1.style.color = "white";
+    answer2.style.color = "white";
+    answer3.style.color = "white";
+    answer4.style.color = "white";
 
-if(q.options.length == 2){
-
-answer3.style.display = "none";    
-answer4.style.display = "none";
-
-}else{
-
-answer3.style.display = "block";    
-answer4.style.display = "block";
-
-}
-    
-questionBox.style.color = "black";
-questionBox.style.fontSize = "28px";
-answer1.style.color = "white";
-answer2.style.color = "white";
-answer3.style.color = "white";
-answer4.style.color = "white";   
-
-robot.src = "robot.png";
-
+    robot.src = "robot.png";
 }
 /* ==========================================
 بخش ۴
