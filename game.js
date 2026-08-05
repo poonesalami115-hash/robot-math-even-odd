@@ -475,48 +475,30 @@ setTimeout(function(){
 
 else{
 
-wrongTry++;    
+wrongTry++;
 
-wrongAnswers++;    
+wrongAnswers++;
 
-wrongSound.currentTime = 0;    
-wrongSound.play();    
+if(wrongTry == 1){
 
-robotWrong.currentTime = 0;    
-robotWrong.play();    
-
-/* بار اول */    
-
-if(wrongTry == 1){    
-
-    speechBox.innerHTML = "دوباره فکر کن 😊";    
-
-}    
-
-/* بار دوم */    
-
-else{    
-
-    speechBox.innerHTML =    
-    "پاسخ صحیح: " + q.options[q.answer];    
-
-    setTimeout(function(){    
-
-        currentQuestion++;    
-
-        if(currentQuestion < questions.length){    
-
-            showQuestion();    
-
-        }else{    
-
-            finishGame();    
-
-        }    
-
-    },3000);    
+    robotWrong.currentTime = 0;
+    robotWrong.play();
 
 }
+
+else{
+
+    currentQuestion++;
+
+    if(currentQuestion < questions.length){
+
+        showQuestion();
+
+    }else{
+
+        finishGame();
+
+    }
 
 }
 
