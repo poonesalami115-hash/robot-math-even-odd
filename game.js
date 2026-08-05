@@ -391,6 +391,13 @@ answer3.style.display = "block";
 answer4.style.display = "block";
 
 }
+    
+questionBox.style.color = "black";
+questionBox.style.fontSize = "28px";
+answer1.style.color = "white";
+answer2.style.color = "white";
+answer3.style.color = "white";
+answer4.style.color = "white";   
 
 robot.src = "robot.png";
 
